@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">TopCinema</string>
+    <string name="txtBtnInicioQuienesSomos">¿QUIENES SOMOS?</string>
+    <string name="txtBtnInicioSistema">Ingresar al Sistema</string>
+    <string name="txtBtnInicioRegistro">Registro</string>
 </resources>
