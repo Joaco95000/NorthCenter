@@ -4,16 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/background_dark"
     android:orientation="vertical"
-    tools:context=".MainActivity" >
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/logohoritzontal" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView10"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="TextView"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        tools:text="@string/tcTitulo" />
+        android:fontFamily="@font/comfortaa_light"
+        android:text="@string/qui_nes_somos"
+        android:textColor="@color/gey"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/en_topcinema_creamos_historias_m_gicas_emocionantes_divertidas_inquietantes_vivimos_el_cine_desde_la_idea_hasta_la_pantalla_por_eso_queremos_traerte_las_mejores_pel_culas_y_a_las_personas_que_las_hacen_posible_para_que_te_hagan_so_ar_y_vibrar_n_n_ven_y_vive_un_plan_filmax"
+        android:textColor="@color/gey"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_marginTop="10dp"
+        app:srcCompat="@drawable/cinema" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <VideoView
+            android:id="@+id/video_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </FrameLayout>
 </LinearLayout>
