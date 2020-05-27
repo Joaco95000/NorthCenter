@@ -40,4 +40,17 @@ public class InicioActividad extends AppCompatActivity {
         }
 
     }
+
+    public void cargarLogin(View w)
+    {
+        try {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        }
+        catch (Exception ex)
+        {
+            Toast.makeText(this,ex.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+
+    }
 }

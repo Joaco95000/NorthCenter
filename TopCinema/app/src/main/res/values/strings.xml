@@ -31,4 +31,9 @@
     <string name="string1">Ingrese su Nombre de Usuario</string>
     <string name="string2">Ingrese su Contraseña</string>
     <string name="correo">Correo</string>
+    <!-- Login -->
+    <string name="ingresarTitulo">INICIAR SESION</string>
+    <string name="ingresarIngresar">Ingresar</string>
+    <string name="ingresarUsuario">Ingresa tu nombre de usuario</string>
+    <string name="ingresarContrasenia">Ingresa tu contraseña</string>
 </resources>
