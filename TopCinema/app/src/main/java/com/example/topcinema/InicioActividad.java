@@ -27,4 +27,17 @@ public class InicioActividad extends AppCompatActivity {
         }
 
     }
+
+    public void cargarRegister(View w)
+    {
+        try {
+            Intent intent = new Intent(this, RegisterActivity.class);
+            startActivity(intent);
+        }
+        catch (Exception ex)
+        {
+            Toast.makeText(this,ex.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+
+    }
 }

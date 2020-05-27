@@ -38,5 +38,6 @@
         android:background="#B11623"
         android:fontFamily="@font/chango"
         android:text="@string/txtBtnInicioRegistro"
+        android:onClick="cargarRegister"
         android:textColor="#CCCCCC" />
 </LinearLayout>
