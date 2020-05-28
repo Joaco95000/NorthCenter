@@ -11,8 +11,8 @@
 
     <ImageView
         android:id="@+id/ivLogo"
-        android:layout_width="253dp"
-        android:layout_height="323dp"
-        app:srcCompat="@drawable/colussuslogo" />
+        android:layout_width="338dp"
+        android:layout_height="420dp"
+        app:srcCompat="@drawable/topcinemalogo" />
 
 </LinearLayout>
