@@ -13,6 +13,7 @@
     <string name="inmersi_n_total_pantallas_gigantes_y_c_modas_butacas_en_grada_para_que_disfrutes_del_nuevo_cine">Inmersión total: Pantallas gigantes y cómodas butacas en grada para que disfrutes del nuevo cine.</string>
     <string name="digital_experience_con_los_nuevos_proyectores_digitales_2d_y_3d">DIGITAL EXPERIENCE con los nuevos proyectores digitales 2D Y 3D.</string>
     <string name="_4dx_movimientos_y_vibraciones_esto_se_va_a_mover">4DX, movimientos y vibraciones: ¡Esto se va a mover!</string>
+    <string name="tvScreenX">¡SreenX, lo más nuevo!</string>
     <!--  Register -->
     <string name="btn1">Crear Estudiante</string>
     <string name="btn2">Ingresar a BDD</string>
@@ -36,4 +37,5 @@
     <string name="ingresarIngresar">Ingresar</string>
     <string name="ingresarUsuario">Ingresa tu nombre de usuario</string>
     <string name="ingresarContrasenia">Ingresa tu contraseña</string>
+
 </resources>
