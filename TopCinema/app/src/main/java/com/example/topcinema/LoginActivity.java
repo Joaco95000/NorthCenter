@@ -34,17 +34,17 @@ public class LoginActivity extends AppCompatActivity {
                 try{
                     tvIS.setText("");
                     String usuarioString = etIS.getText().toString();
-                    String contraseniaString = etCon.getText().toString();
+                    String passwordString = etCon.getText().toString();
                     AyudanteBaseDeDatos ayudanteBaseDeDatos = new AyudanteBaseDeDatos(LoginActivity.this);
                     SQLiteDatabase bd = ayudanteBaseDeDatos.getReadableDatabase();
-                    Cursor c = bd.rawQuery("SELECT usuario, contrasenia FROM estudiante", null);
+                    Cursor c = bd.rawQuery("SELECT usuario, password FROM usuarios", null);
                     if(c.moveToFirst()){
 
                         do{
                             String usuarioEncontrado = c.getString(0);
-                            String contraseñaEncontrada = c.getString(1);
+                            String passwordEncontrada = c.getString(1);
 
-                            if(usuarioString.equals(usuarioEncontrado)&&contraseniaString.equals(contraseñaEncontrada))
+                            if(usuarioString.equals(usuarioEncontrado)&&passwordString.equals(passwordEncontrada))
                             {
                                 tvIS.setText("Bienvenido");
                             }
