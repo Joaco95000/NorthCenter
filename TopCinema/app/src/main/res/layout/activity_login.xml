@@ -16,7 +16,7 @@
         android:fontFamily="casual"
         android:text="@string/ingresarTitulo"
         android:textAlignment="center"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textSize="30sp"
         android:textStyle="italic"
         android:gravity="center_horizontal" />
@@ -28,8 +28,8 @@
         android:ems="10"
         android:hint="@string/ingresarUsuario"
         android:inputType="textPersonName"
-        android:textColor="@android:color/black"
-        android:textColorHint="#000000" />
+        android:textColor="@android:color/white"
+        android:textColorHint="#FFFFFF" />
 
     <EditText
         android:id="@+id/etIngresarContrasenia"
@@ -38,8 +38,8 @@
         android:ems="10"
         android:hint="@string/ingresarContrasenia"
         android:inputType="textPassword"
-        android:textColor="@android:color/black"
-        android:textColorHint="#000000" />
+        android:textColor="@android:color/white"
+        android:textColorHint="#FFFFFF" />
 
     <Button
         android:id="@+id/btnIngresarIngresar"
@@ -57,7 +57,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textSize="24sp"
         android:gravity="center_horizontal" />
 </LinearLayout>
