@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".RegisterPeliculaActivity" />
         <activity android:name=".InicioActividad" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />

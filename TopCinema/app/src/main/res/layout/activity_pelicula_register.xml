@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/darkGrey"
+    tools:context=".RegisterPeliculaActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/txtTitulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/comfortaa_light"
+                android:gravity="center"
+                android:text="@string/tituloIngresarPelicula"
+                android:textSize="4mm"
+                android:textColor="@color/gey" />
+
+            <EditText
+                android:id="@+id/etNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:ems="10"
+                android:hint="@string/nombrePelicula"
+                android:inputType="textPersonName"
+                android:textColor="@color/gey"
+                android:textColorHint="@color/gey" />
+
+            <EditText
+                android:id="@+id/etGenero"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:ems="10"
+                android:hint="@string/generoPelicula"
+                android:inputType="textPersonName"
+                android:textColor="@color/gey"
+                android:textColorHint="@color/gey" />
+
+            <EditText
+                android:id="@+id/etCompania"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:ems="10"
+                android:hint="@string/companiaPelicula"
+                android:inputType="textPersonName"
+                android:textColor="@color/gey"
+                android:textColorHint="@color/gey" />
+
+            <EditText
+                android:id="@+id/etDuracion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:ems="10"
+                android:hint="@string/duracionPelicula"
+                android:inputType="number"
+                android:textColor="@color/gey"
+                android:textColorHint="@color/gey" />
+
+            <EditText
+                android:id="@+id/etPuntuacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:ems="10"
+                android:hint="@string/puntuacionPelicula"
+                android:inputType="number"
+                android:textColor="@color/gey"
+                android:textColorHint="@color/gey" />
+
+            <Button
+                android:id="@+id/btnCrear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="#B11623"
+                android:fontFamily="@font/chango"
+                android:text="@string/botonCrear"
+                android:textColor="#CCCCCC" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

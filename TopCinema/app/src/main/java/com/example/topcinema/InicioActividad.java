@@ -3,7 +3,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Message;
 import android.view.View;
 import android.widget.Toast;
 
@@ -45,6 +44,18 @@ public class InicioActividad extends AppCompatActivity {
     {
         try {
             Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        }
+        catch (Exception ex)
+        {
+            Toast.makeText(this,ex.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+
+    }
+    public void cargarRegsitroPeliculas(View w)
+    {
+        try {
+            Intent intent = new Intent(this, RegisterPeliculaActivity.class);
             startActivity(intent);
         }
         catch (Exception ex)

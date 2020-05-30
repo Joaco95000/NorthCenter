@@ -37,5 +37,12 @@
     <string name="ingresarIngresar">Ingresar</string>
     <string name="ingresarUsuario">Ingresa tu nombre de usuario</string>
     <string name="ingresarContrasenia">Ingresa tu contraseña</string>
-
+    <!-- Register Peliculas -->
+    <string name="tituloIngresarPelicula">AÑADIR PELICULA</string>
+    <string name="nombrePelicula">Nombre</string>
+    <string name="generoPelicula">Genero</string>
+    <string name="companiaPelicula">Compania</string>
+    <string name="duracionPelicula">Duraccion</string>
+    <string name="puntuacionPelicula">Puntuacion</string>
+    <string name="registroPeliculas">Registrar Pelicula</string>
 </resources>
