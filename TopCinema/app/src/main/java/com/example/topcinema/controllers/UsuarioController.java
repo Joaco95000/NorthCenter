@@ -2,10 +2,13 @@ package com.example.topcinema.controllers;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.topcinema.AyudanteBaseDeDatos;
 import com.example.topcinema.modelos.Usuario;
+
+import java.util.ArrayList;
 
 public class UsuarioController {
     private AyudanteBaseDeDatos ayudanteBaseDeDatos;
@@ -26,5 +29,21 @@ public class UsuarioController {
         valoresParaInsertar.put("usuario",usuario.getUsuario());
         valoresParaInsertar.put("password",usuario.getPassword());
         return baseDeDatos.insert(NOMBRE_TABLA,null,valoresParaInsertar);
+    }
+
+    public ArrayList listaDeUsuarios() {
+        SQLiteDatabase baseD = ayudanteBaseDeDatos.getWritableDatabase();
+        ArrayList<Usuario> array_list = new ArrayList<Usuario>();
+        Cursor cursor = baseD.rawQuery( "select * from " + NOMBRE_TABLA, null );
+        cursor.moveToFirst();
+        while(cursor.isAfterLast() == false) {
+            String nombre = cursor.getString(cursor.getColumnIndex("nombre"));
+            String correo = cursor.getString(cursor.getColumnIndex("correo"));
+            String usuario = cursor.getString(cursor.getColumnIndex("usuario"));
+            Usuario u = new Usuario(nombre,correo,usuario);
+            array_list.add(u);
+            cursor.moveToNext();
+        }
+        return array_list;
     }
 }
