@@ -2,6 +2,7 @@ package com.example.topcinema;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -47,7 +48,7 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View view)
             {
                 try{
-                    String correo = etNombre.getText().toString();
+                    String correo = etCorreo.getText().toString();
 
                     String nombre = etNombre.getText().toString();
                     String apellido1 = etApellido1.getText().toString();
@@ -112,6 +113,8 @@ public class RegisterActivity extends AppCompatActivity {
 
                         }else{
                             Toast.makeText(RegisterActivity.this,"Se insertó correctamente",Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(RegisterActivity.this,InicioActividad.class);
+                            startActivity(intent);
                         }
                     }
                     else

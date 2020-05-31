@@ -31,7 +31,7 @@ public class InicioActividad extends AppCompatActivity {
     public void cargarRegister(View w)
     {
         try {
-            Intent intent = new Intent(this, RegisterActivity.class);
+            Intent intent = new Intent(this, ViewUserActivity.class);
             startActivity(intent);
         }
         catch (Exception ex)

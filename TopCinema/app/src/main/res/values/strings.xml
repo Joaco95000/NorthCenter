@@ -38,4 +38,11 @@
     <string name="ingresarUsuario">Ingresa tu nombre de usuario</string>
     <string name="ingresarContrasenia">Ingresa tu contraseña</string>
 
+    <!-- ListUser -->
+    <string name="tvT">Lista de Usuarios</string>
+    <string name="btnRegistrarUsuario">REGISTRAR USUARIO</string>
+    <string name="tvN">Nombre:</string>
+    <string name="TVc">Email:</string>
+    <string name="tvU">Nombre de Usuario:</string>
+
 </resources>
