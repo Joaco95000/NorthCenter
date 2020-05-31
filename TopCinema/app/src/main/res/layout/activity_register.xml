@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/darkGrey"
+    tools:context=".RegisterActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/txtTitulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/comfortaa_light"
+                android:gravity="center"
+                android:text="@string/titulo2"
+                android:textColor="@color/gey" />
+
+            <EditText
+                android:id="@+id/etNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:ems="10"
+                android:hint="@string/nombre"
+                android:inputType="textPersonName"
+                android:textColor="@color/gey"
+                android:textColorHint="@color/gey" />
+
+            <EditText
+                android:id="@+id/etApellido1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:ems="10"
+                android:hint="@string/apellido1"
+                android:inputType="textPersonName"
+                android:textColor="@color/gey"
+                android:textColorHint="@color/gey" />
+
+            <EditText
+                android:id="@+id/etApellido2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:ems="10"
+                android:hint="@string/apellido2"
+                android:inputType="textPersonName"
+                android:textColor="@color/gey"
+                android:textColorHint="@color/gey" />
+
+            <EditText
+                android:id="@+id/etEdad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:ems="10"
+                android:hint="@string/edad"
+                android:inputType="number"
+                android:textColor="@color/gey"
+                android:textColorHint="@color/gey" />
+
+            <EditText
+                android:id="@+id/etCorreo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:ems="10"
+                android:hint="@string/correo"
+                android:inputType="textPersonName"
+                android:textColor="@color/gey"
+                android:textColorHint="@color/gey" />
+
+            <EditText
+                android:id="@+id/etUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:ems="10"
+                android:hint="@string/usuario"
+                android:inputType="textPersonName"
+                android:textColor="@color/gey"
+                android:textColorHint="@color/gey" />
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:ems="10"
+                android:hint="@string/Password1"
+                android:inputType="textPassword"
+                android:textColor="@color/gey"
+                android:textColorHint="@color/gey" />
+
+            <EditText
+                android:id="@+id/etPassword2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:ems="10"
+                android:hint="@string/Password2"
+                android:inputType="textPassword"
+                android:textColor="@color/gey"
+                android:textColorHint="@color/gey" />
+
+            <Button
+                android:id="@+id/btnCrear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="#B11623"
+                android:fontFamily="@font/chango"
+                android:text="@string/botonCrear"
+                android:textColor="#CCCCCC" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
