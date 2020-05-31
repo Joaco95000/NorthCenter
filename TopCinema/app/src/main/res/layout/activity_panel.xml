@@ -28,7 +28,7 @@
         android:layout_margin="15dp"
         android:background="#B11623"
         android:fontFamily="@font/chango"
-        android:onClick="cargarRegisterUsuarios"
+        android:onClick="cargarUserView"
         android:text="@string/btnIrRegistrar"
         android:textColor="#CCCCCC" />
 
@@ -39,7 +39,7 @@
         android:layout_margin="15dp"
         android:background="#B11623"
         android:fontFamily="@font/chango"
-        android:onClick="cargarRegisterPeliculas"
+        android:onClick="cargarMovieView"
         android:text="@string/btnIrPeliculas"
         android:textColor="#CCCCCC" />
 

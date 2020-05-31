@@ -14,10 +14,10 @@ public class PanelActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_panel);
     }
-    public void cargarRegisterUsuarios(View w)
+    public void cargarUserView(View w)
     {
         try {
-            Intent intent = new Intent(this, RegisterActivity.class);
+            Intent intent = new Intent(this, ViewUserActivity.class);
             startActivity(intent);
         }
         catch (Exception ex)
@@ -27,10 +27,10 @@ public class PanelActivity extends AppCompatActivity {
 
     }
 
-    public void cargarRegisterPeliculas(View w)
+    public void cargarMovieView(View w)
     {
         try {
-            Intent intent = new Intent(this, RegisterActivity.class);
+            Intent intent = new Intent(this, ViewPeliculaActivity.class);
             startActivity(intent);
         }
         catch (Exception ex)
@@ -42,7 +42,7 @@ public class PanelActivity extends AppCompatActivity {
     public void cerrarSesion(View w)
     {
         try {
-            Intent intent = new Intent(this, LoginActivity.class);
+            Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }
         catch (Exception ex)

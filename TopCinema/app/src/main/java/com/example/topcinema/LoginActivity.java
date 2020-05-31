@@ -1,5 +1,6 @@
 package com.example.topcinema;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -46,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             if(usuarioString.equals(usuarioEncontrado)&&passwordString.equals(passwordEncontrada))
                             {
-                                tvIS.setText("Bienvenido");
+                                llamarPanel();
                             }
                         }while (c.moveToNext());
                         if(tvIS.getText().toString().equals("")){
@@ -60,6 +61,18 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
             }
+
         });
     }
+  public void llamarPanel()
+  {
+      try {
+          Intent intent = new Intent(this, PanelActivity.class);
+          startActivity(intent);
+      }
+      catch (Exception ex)
+      {
+          Toast.makeText(this,ex.getMessage(), Toast.LENGTH_SHORT).show();
+      }
+  }
 }
