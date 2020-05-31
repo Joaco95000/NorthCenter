@@ -2,9 +2,13 @@ package com.example.topcinema.controllers;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
 import com.example.topcinema.AyudanteBaseDeDatos;
 import com.example.topcinema.modelos.Pelicula;
+
+import java.util.ArrayList;
 
 public class PeliculaController {
 
@@ -24,5 +28,20 @@ public class PeliculaController {
         valoresParaInsertar.put("duracion",pelicula.getDuracion());
         valoresParaInsertar.put("puntuacion",pelicula.getPuntuacion());
         return baseDeDatos.insert(NOMBRE_TABLA,null,valoresParaInsertar);
+    }
+
+    public ArrayList listaDePeliculas() {
+        SQLiteDatabase baseDeDatos = ayudanteBaseDeDatos.getWritableDatabase();
+        ArrayList<Pelicula> array_list = new ArrayList<Pelicula>();
+        Cursor res = baseDeDatos.rawQuery( "select * from " + NOMBRE_TABLA, null );
+        res.moveToFirst();
+        while(res.isAfterLast() == false) {
+            String nombre = res.getString(res.getColumnIndex("nombre"));
+            String compania = res.getString(res.getColumnIndex("compania"));
+            Pelicula p = new Pelicula(nombre, compania);
+            array_list.add(p);
+            res.moveToNext();
+        }
+        return array_list;
     }
 }

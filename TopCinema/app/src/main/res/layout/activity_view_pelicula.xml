@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ViewPeliculaActivity"
+    android:padding="15dp"
+    android:background="#292C37">
+
+    <Button
+        android:id="@+id/btnRegistrarPelicula"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:background="#B11623"
+        android:fontFamily="@font/chango"
+        android:onClick="cargarRegisterPeliculas"
+        android:text="@string/txtBtnRegistrarPelicula"
+        android:textColor="#CCCCCC" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPeliculas"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

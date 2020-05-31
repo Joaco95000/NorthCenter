@@ -7,6 +7,12 @@ public class Pelicula {
 
     public Pelicula(){}
 
+    public Pelicula(String nombre, String compania)
+    {
+        this.nombre = nombre;
+        this.compania = compania;
+    }
+
     public Pelicula(String nombre, String genero, String compania, int duracion, int puntuacion)
     {
         this.nombre = nombre;

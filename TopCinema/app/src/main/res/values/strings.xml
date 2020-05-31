@@ -44,5 +44,7 @@
     <string name="companiaPelicula">Compania</string>
     <string name="duracionPelicula">Duraccion</string>
     <string name="puntuacionPelicula">Puntuacion</string>
-    <string name="registroPeliculas">Registrar Pelicula</string>
+    <string name="registroPeliculas">Peliculas</string>
+    <!-- View Peliculas -->
+    <string name="txtBtnRegistrarPelicula">Registrar Película</string>
 </resources>

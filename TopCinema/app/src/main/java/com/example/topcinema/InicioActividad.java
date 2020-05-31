@@ -52,16 +52,15 @@ public class InicioActividad extends AppCompatActivity {
         }
 
     }
-    public void cargarRegsitroPeliculas(View w)
+    public void cargarPeliculas(View w)
     {
         try {
-            Intent intent = new Intent(this, RegisterPeliculaActivity.class);
+            Intent intent = new Intent(this, ViewPeliculaActivity.class);
             startActivity(intent);
         }
         catch (Exception ex)
         {
             Toast.makeText(this,ex.getMessage(), Toast.LENGTH_SHORT).show();
         }
-
     }
 }
