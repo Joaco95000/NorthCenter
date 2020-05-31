@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#292C37"
+    android:gravity="top"
+    android:orientation="vertical"
+    tools:context=".IdiomActivity">
+
+    <TextView
+        android:id="@+id/txtCambiarIdioma"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="top"
+        android:background="#B11623"
+        android:fontFamily="@font/chango"
+        android:gravity="center"
+        android:text="@string/txtCambiarIdioma"
+        android:textColor="#000000"
+        android:textSize="30sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnEspanol"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="#B11623"
+            android:fontFamily="@font/chango"
+            android:text="@string/btnEspanol"
+            android:textColor="#CCCCCC" />
+
+        <Button
+            android:id="@+id/btnIngles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="#B11623"
+            android:fontFamily="@font/chango"
+            android:text="@string/btnIngles"
+            android:textColor="#CCCCCC" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnVolver"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginRight="15dp"
+        android:background="#B11623"
+        android:fontFamily="@font/chango"
+        android:onClick="volverLogin"
+        android:text="@string/btnVolverIdiom"
+        android:textColor="#CCCCCC" />
+
+
+</LinearLayout>

@@ -1,4 +1,5 @@
 package com.example.topcinema;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -6,18 +7,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-public class InicioActividad extends AppCompatActivity {
+public class PanelActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_inicio_actividad);
+        setContentView(R.layout.activity_panel);
     }
-
-    public void cargarQuienesSomos(View w)
+    public void cargarRegisterUsuarios(View w)
     {
         try {
-            Intent intent = new Intent(this, QuienesSomosActivity.class);
+            Intent intent = new Intent(this, RegisterActivity.class);
             startActivity(intent);
         }
         catch (Exception ex)
@@ -27,10 +27,10 @@ public class InicioActividad extends AppCompatActivity {
 
     }
 
-    public void cargarRegister(View w)
+    public void cargarRegisterPeliculas(View w)
     {
         try {
-            Intent intent = new Intent(this, ViewUserActivity.class);
+            Intent intent = new Intent(this, RegisterActivity.class);
             startActivity(intent);
         }
         catch (Exception ex)
@@ -39,8 +39,7 @@ public class InicioActividad extends AppCompatActivity {
         }
 
     }
-
-    public void cargarLogin(View w)
+    public void cerrarSesion(View w)
     {
         try {
             Intent intent = new Intent(this, LoginActivity.class);
@@ -51,17 +50,5 @@ public class InicioActividad extends AppCompatActivity {
             Toast.makeText(this,ex.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
-    }
-
-    public void cargarIdioma(View w)
-    {
-        try {
-            Intent intent = new Intent(this, IdiomActivity.class);
-            startActivity(intent);
-        }
-        catch (Exception ex)
-        {
-            Toast.makeText(this,ex.getMessage(), Toast.LENGTH_SHORT).show();
-        }
     }
 }

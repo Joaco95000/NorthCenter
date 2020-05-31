@@ -15,10 +15,10 @@
     <string name="_4dx_movimientos_y_vibraciones_esto_se_va_a_mover">4DX, movimientos y vibraciones: ¡Esto se va a mover!</string>
     <string name="tvScreenX">¡SreenX, lo más nuevo!</string>
     <!--  Register -->
-    <string name="btn1">Crear Estudiante</string>
+    <string name="btn1">Crear Usuario</string>
     <string name="btn2">Ingresar a BDD</string>
     <string name="title_activity_main_crear">MainCrear</string>
-    <string name="titulo2">Crear Estudiante</string>
+    <string name="titulo2">Crear Usuario</string>
     <string name="nombre">Nombre</string>
     <string name="apellido1">Apellido</string>
     <string name="apellido2">Segundo Apellido</string>
@@ -53,4 +53,14 @@
     <string name="tvN">Nombre:</string>
     <string name="TVc">Email:</string>
     <string name="tvU">Nombre de Usuario:</string>
+    <!-- Panel -->
+    <string name="btnIrRegistrar">Usuarios</string>
+    <string name="btnIrPeliculas">Peliculas</string>
+    <string name="btnCerrarSesion">Cerrar Sesión</string>
+    <string name="etTopCinema">Top Cinema</string>
+    <!-- Idiom -->
+    <string name="txtCambiarIdioma">Cambiar Idioma</string>
+    <string name="btnEspanol">Español</string>
+    <string name="btnIngles">Inglés</string>
+    <string name="btnVolverIdiom">Volver</string>
 </resources>
