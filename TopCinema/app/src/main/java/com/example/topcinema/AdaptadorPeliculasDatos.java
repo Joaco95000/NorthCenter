@@ -1,8 +1,11 @@
 package com.example.topcinema;
 
+import android.media.Image;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -37,16 +40,28 @@ public class AdaptadorPeliculasDatos extends RecyclerView.Adapter<AdaptadorPelic
 
     //Vamos a crear la clase
     public class ViewHolderDatos extends RecyclerView.ViewHolder {
-        TextView dato, dato1;
-        public ViewHolderDatos(@NonNull View itemView) {
-            super(itemView);
-            dato = itemView.findViewById(R.id.tvNombre);
-            dato1 = itemView.findViewById(R.id.tvCompania);
-        }
+
+            TextView dato, dato1;
+            public ViewHolderDatos(@NonNull View itemView) {
+                super(itemView);
+                try {
+                    dato = itemView.findViewById(R.id.tvNombre);
+                    dato1 = itemView.findViewById(R.id.tvCompania);
+                }
+                catch (Exception ex){
+                    throw  ex;
+                }
+            }
         //vamos a cargar la cadena de caracteres en el TextView
         public void asignarDatos(Pelicula s) {
-            dato.setText("Nombre: " + s.getNombre());
-            dato1.setText("Compañía: " + s.getCompania());
+                try{
+                    dato.setText("Nombre: " + s.getNombre());
+                    dato1.setText("Compañía: " + s.getCompania());
+                }
+                catch (Exception ex){
+                    throw ex;
+                }
+
         }
     }
 }

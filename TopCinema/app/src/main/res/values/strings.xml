@@ -63,4 +63,5 @@
     <string name="btnEspanol">Español</string>
     <string name="btnIngles">Inglés</string>
     <string name="btnVolverIdiom">Volver</string>
+    <string name="btnAgregarFoto">Añadir Carátula</string>
 </resources>

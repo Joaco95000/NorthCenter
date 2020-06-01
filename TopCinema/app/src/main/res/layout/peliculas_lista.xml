@@ -6,7 +6,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <ScrollView
@@ -19,6 +19,12 @@
                 android:background="#B11623"
                 android:orientation="horizontal">
 
+                <ImageView
+                    android:id="@+id/imgPe"
+                    android:layout_width="250dp"
+                    android:layout_height="150dp"
+                    android:layout_weight="1" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -30,30 +36,34 @@
                         android:id="@+id/textView2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/chango"
                         android:gravity="center|left"
                         android:text="PELICULA:"
-                        android:textSize="25sp"
-                        android:fontFamily="@font/chango"
                         android:textColor="#CCCCCC"
+                        android:textSize="25sp"
                         android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/tvNombre"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/chango"
                         android:textColor="#CCCCCC" />
+
                     <TextView
                         android:id="@+id/tvCompania"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/chango"
                         android:textColor="#CCCCCC" />
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:background="#000000" />
                 </LinearLayout>
+
             </LinearLayout>
         </ScrollView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#000000" />
     </LinearLayout>
 </LinearLayout>
