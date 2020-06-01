@@ -3,6 +3,10 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
-    <color name="gey">#CCCCCC</color>
+
+    <color name="grey">#CCCCCC</color>
     <color name="darkGrey">#292C37</color>
+    <color name="black">#000000</color>
+    <color name="estadoMasRojo">#9F111B</color>
+    <color name="estadoRojo">#B11623</color>
 </resources>

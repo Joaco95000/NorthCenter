@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/comfortaa_light"
-        android:textColor="@color/gey"
+        android:textColor="@color/grey"
         android:gravity="center_horizontal"
         android:text="@string/tvT"
         android:textSize="45sp" />
@@ -27,7 +27,7 @@
         android:fontFamily="@font/comfortaa_light"
         android:onClick="cargarRegister"
         android:text="@string/btnRegistrarUsuario"
-        android:textColor="@color/gey"
+        android:textColor="@color/grey"
         android:layout_margin="16dp"/>
 
     <androidx.recyclerview.widget.RecyclerView

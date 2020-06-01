@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/comfortaa_light"
         android:text="@string/qui_nes_somos"
-        android:textColor="@color/gey"
+        android:textColor="@color/grey"
         android:textSize="40sp" />
 
     <TextView
@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/en_topcinema_creamos_historias_m_gicas_emocionantes_divertidas_inquietantes_vivimos_el_cine_desde_la_idea_hasta_la_pantalla_por_eso_queremos_traerte_las_mejores_pel_culas_y_a_las_personas_que_las_hacen_posible_para_que_te_hagan_so_ar_y_vibrar_n_n_ven_y_vive_un_plan_filmax"
-        android:textColor="@color/gey"
+        android:textColor="@color/grey"
         android:textSize="18sp" />
 
     <ImageView
@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:text="@string/tvScreenX"
-        android:textColor="@color/gey"
+        android:textColor="@color/grey"
         android:textSize="18sp" />
 
     <FrameLayout

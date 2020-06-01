@@ -26,7 +26,7 @@
                 android:gravity="center"
                 android:text="@string/tituloIngresarPelicula"
                 android:textSize="4mm"
-                android:textColor="@color/gey" />
+                android:textColor="@color/grey" />
 
             <EditText
                 android:id="@+id/etNombre"
@@ -36,8 +36,8 @@
                 android:ems="10"
                 android:hint="@string/nombrePelicula"
                 android:inputType="textPersonName"
-                android:textColor="@color/gey"
-                android:textColorHint="@color/gey" />
+                android:textColor="@color/grey"
+                android:textColorHint="@color/grey" />
 
             <EditText
                 android:id="@+id/etGenero"
@@ -47,8 +47,8 @@
                 android:ems="10"
                 android:hint="@string/generoPelicula"
                 android:inputType="textPersonName"
-                android:textColor="@color/gey"
-                android:textColorHint="@color/gey" />
+                android:textColor="@color/grey"
+                android:textColorHint="@color/grey"/>
 
             <EditText
                 android:id="@+id/etCompania"
@@ -58,8 +58,8 @@
                 android:ems="10"
                 android:hint="@string/companiaPelicula"
                 android:inputType="textPersonName"
-                android:textColor="@color/gey"
-                android:textColorHint="@color/gey" />
+                android:textColor="@color/grey"
+                android:textColorHint="@color/grey"/>
 
             <EditText
                 android:id="@+id/etDuracion"
@@ -69,8 +69,8 @@
                 android:ems="10"
                 android:hint="@string/duracionPelicula"
                 android:inputType="number"
-                android:textColor="@color/gey"
-                android:textColorHint="@color/gey" />
+                android:textColor="@color/grey"
+                android:textColorHint="@color/grey"/>
 
             <EditText
                 android:id="@+id/etPuntuacion"
@@ -80,8 +80,8 @@
                 android:ems="10"
                 android:hint="@string/puntuacionPelicula"
                 android:inputType="number"
-                android:textColor="@color/gey"
-                android:textColorHint="@color/gey" />
+                android:textColor="@color/grey"
+                android:textColorHint="@color/grey"/>
 
             <Button
                 android:id="@+id/btnCrear"
@@ -89,10 +89,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:background="#B11623"
+                android:background="@color/estadoRojo"
                 android:fontFamily="@font/chango"
                 android:text="@string/botonCrear"
-                android:textColor="#CCCCCC" />
+                android:textColor="@color/grey" />
         </LinearLayout>
     </ScrollView>
 

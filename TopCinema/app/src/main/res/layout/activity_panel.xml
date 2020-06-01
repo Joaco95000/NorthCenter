@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="top"
     android:orientation="vertical"
-    android:background="#292C37"
+    android:background="@color/darkGrey"
     tools:context=".PanelActivity">
 
 
@@ -14,11 +14,11 @@
         android:id="@+id/etTitulo"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="#B11623"
+        android:background="@color/estadoRojo"
         android:fontFamily="@font/chango"
         android:gravity="center"
         android:text="@string/etTopCinema"
-        android:textColor="@android:color/background_dark"
+        android:textColor="@color/black"
         android:textSize="30sp" />
 
     <Button
@@ -26,31 +26,31 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
-        android:background="#B11623"
+        android:background="@color/estadoRojo"
         android:fontFamily="@font/chango"
         android:onClick="cargarUserView"
         android:text="@string/btnIrRegistrar"
-        android:textColor="#CCCCCC" />
+        android:textColor="@color/grey" />
 
     <Button
         android:id="@+id/btnIrPeliculas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
-        android:background="#B11623"
+        android:background="@color/estadoRojo"
         android:fontFamily="@font/chango"
         android:onClick="cargarMovieView"
         android:text="@string/btnIrPeliculas"
-        android:textColor="#CCCCCC" />
+        android:textColor="@color/grey" />
 
     <Button
         android:id="@+id/btnCerrarSesion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
-        android:background="#B11623"
+        android:background="@color/estadoRojo"
         android:fontFamily="@font/chango"
         android:onClick="cerrarSesion"
         android:text="@string/btnCerrarSesion"
-        android:textColor="#CCCCCC" />
+        android:textColor="@color/grey"/>
 </LinearLayout>

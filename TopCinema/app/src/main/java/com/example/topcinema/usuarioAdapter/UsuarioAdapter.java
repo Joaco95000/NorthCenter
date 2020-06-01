@@ -50,9 +50,9 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.Usuarios
         }
 
         public void asignarUsuarios (Usuario u){
-            nombre.setText(u.getNombre());
-            correo.setText(u.getCorreo());
-            usuario.setText(u.getUsuario());
+            nombre.setText("Nombre: " + u.getNombre());
+            correo.setText("Correo: " + u.getCorreo());
+            usuario.setText("Username: " + u.getUsuario());
         }
     }
 }
