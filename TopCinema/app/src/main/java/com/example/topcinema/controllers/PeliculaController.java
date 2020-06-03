@@ -44,4 +44,19 @@ public class PeliculaController {
         }
         return array_list;
     }
+
+    public ArrayList listaDePeliculas(String buscar) {
+        SQLiteDatabase baseDeDatos = ayudanteBaseDeDatos.getWritableDatabase();
+        ArrayList<Pelicula> array_list = new ArrayList<Pelicula>();
+        Cursor res = baseDeDatos.rawQuery( "SELECT * FROM " + NOMBRE_TABLA + " WHERE nombre LIKE '%" + buscar + "%';", null );
+        res.moveToFirst();
+        while(res.isAfterLast() == false) {
+            String nombre = res.getString(res.getColumnIndex("nombre"));
+            String compania = res.getString(res.getColumnIndex("compania"));
+            Pelicula p = new Pelicula(nombre, compania);
+            array_list.add(p);
+            res.moveToNext();
+        }
+        return array_list;
+    }
 }

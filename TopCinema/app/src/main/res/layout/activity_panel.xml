@@ -8,49 +8,49 @@
     android:orientation="vertical"
     android:background="@color/darkGrey"
     tools:context=".PanelActivity">
-
-
     <TextView
         android:id="@+id/etTitulo"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/estadoRojo"
-        android:fontFamily="@font/chango"
+        android:fontFamily="@font/comfortaa_light"
         android:gravity="center"
         android:text="@string/etTopCinema"
-        android:textColor="@color/black"
+        android:textColor="@color/grey"
         android:textSize="30sp" />
-
     <Button
         android:id="@+id/btnInicioSistema"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
         android:background="@color/estadoRojo"
-        android:fontFamily="@font/chango"
+        android:fontFamily="@font/comfortaa_light"
         android:onClick="cargarUserView"
         android:text="@string/btnIrRegistrar"
+        android:textSize="24sp"
+        android:textStyle="bold"
         android:textColor="@color/grey" />
-
     <Button
         android:id="@+id/btnIrPeliculas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
         android:background="@color/estadoRojo"
-        android:fontFamily="@font/chango"
+        android:fontFamily="@font/comfortaa_light"
         android:onClick="cargarMovieView"
         android:text="@string/btnIrPeliculas"
-        android:textColor="@color/grey" />
-
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/grey"/>
     <Button
         android:id="@+id/btnCerrarSesion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
         android:background="@color/estadoRojo"
-        android:fontFamily="@font/chango"
+        android:fontFamily="@font/comfortaa_light"
         android:onClick="cerrarSesion"
         android:text="@string/btnCerrarSesion"
+        android:textSize="24sp"
+        android:textStyle="bold"
         android:textColor="@color/grey"/>
 </LinearLayout>
