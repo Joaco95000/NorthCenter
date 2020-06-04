@@ -44,13 +44,18 @@
         android:textColor="@color/grey"
         android:textSize="24sp"
         android:textStyle="bold" />
-    <Button
+
+    <ImageButton
         android:id="@+id/btnIdioma"
-        android:layout_width="70dp"
-        android:layout_margin="15dp"
-        android:layout_height="wrap_content"
+        android:layout_width="86dp"
+        android:layout_height="86dp"
         android:layout_gravity="right"
-        android:background="@color/estadoRojo"
-        android:fontFamily="@font/chango"
-        android:onClick="cargarIdioma" />
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="15dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:onClick="cargarIdioma"
+        android:scaleType="fitCenter"
+        android:src="@drawable/icon_world" />
 </LinearLayout>

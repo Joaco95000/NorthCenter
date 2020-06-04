@@ -23,29 +23,23 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
         android:gravity="center"
-        android:orientation="vertical">
-        <Button
+        android:orientation="horizontal">
+
+        <ImageButton
             android:id="@+id/btnEspanol"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:background="@color/estadoRojo"
-            android:fontFamily="@font/comfortaa_light"
-            android:text="@string/btnEspanol"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:textColor="@color/grey" />
-        <Button
+            android:background="@android:color/transparent"
+            android:src="@drawable/icon_spanish"/>
+
+        <ImageButton
             android:id="@+id/btnIngles"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:background="@color/estadoRojo"
-            android:fontFamily="@font/comfortaa_light"
-            android:text="@string/btnIngles"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:textColor="@color/grey" />
+            android:background="@android:color/transparent"
+            android:src="@drawable/icon_english"/>
     </LinearLayout>
     <Button
         android:id="@+id/btnVolver"

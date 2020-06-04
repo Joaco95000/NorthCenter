@@ -7,13 +7,14 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import java.util.Locale;
 
 public class IdiomActivity extends AppCompatActivity {
-    Button btnEspanol;
-    Button btnIngles;
+    ImageButton btnEspanol;
+    ImageButton btnIngles;
     Button btnVolver;
     Locale localizacion;
 
