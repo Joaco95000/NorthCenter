@@ -58,4 +58,5 @@
     <string name="tvP">List of Movies</string>
     <string name="txtEtFiltrarUsuario">Filter Users by Username</string>
     <string name="txtEtFiltrarPelicula">Filter Movies by Name</string>
+    <string name="btnAgregarFoto">Add Poster</string>
 </resources>

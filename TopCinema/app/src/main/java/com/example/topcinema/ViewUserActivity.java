@@ -29,29 +29,34 @@ public class ViewUserActivity extends AppCompatActivity {
     AyudanteBaseDeDatos ayudanteBaseDeDatos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_user);
-        recyclerView =findViewById(R.id.ListUsers);
-        etFiltrarUsuario = findViewById(R.id.etFiltrarUsuario);
-        cargarUsuarios();
+        try{
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_view_user);
+            recyclerView =findViewById(R.id.ListUsers);
+            etFiltrarUsuario = findViewById(R.id.etFiltrarUsuario);
+            cargarUsuarios();
 
-        etFiltrarUsuario.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            etFiltrarUsuario.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-            }
+                }
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(count == 0) cargarUsuarios();
-                else cargarUsuarios(s.toString());
-            }
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    if(count == 0) cargarUsuarios();
+                    else cargarUsuarios(s.toString());
+                }
 
-            @Override
-            public void afterTextChanged(Editable s) {
+                @Override
+                public void afterTextChanged(Editable s) {
 
-            }
-        });
+                }
+            });
+        }
+        catch (Exception ex){
+            Toast.makeText(getApplicationContext(),ex.getMessage(),Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void cargarUsuarios()
@@ -82,5 +87,11 @@ public class ViewUserActivity extends AppCompatActivity {
         {
             Toast.makeText(this,ex.getMessage(), Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    public void onRestart() {
+        super.onRestart();
+        cargarUsuarios();
     }
 }

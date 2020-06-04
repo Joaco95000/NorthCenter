@@ -108,6 +108,7 @@ public class RegisterPeliculaActivity extends AppCompatActivity {
 
                         } else {
                             Toast.makeText(RegisterPeliculaActivity.this, "Se insertó correctamente", Toast.LENGTH_LONG).show();
+                            finish();
                         }
                     }
                 }

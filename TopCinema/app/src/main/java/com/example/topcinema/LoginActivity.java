@@ -17,6 +17,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText etIS, etCon;
     Button btnIS;
     TextView tvIS;
+    int res = 0;
 
     @Override
 
@@ -31,7 +32,6 @@ public class LoginActivity extends AppCompatActivity {
         btnIS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 try{
                     tvIS.setText("");
                     String usuarioString = etIS.getText().toString();
@@ -39,29 +39,26 @@ public class LoginActivity extends AppCompatActivity {
                     AyudanteBaseDeDatos ayudanteBaseDeDatos = new AyudanteBaseDeDatos(LoginActivity.this);
                     SQLiteDatabase bd = ayudanteBaseDeDatos.getReadableDatabase();
                     Cursor c = bd.rawQuery("SELECT usuario, password FROM usuarios", null);
+                    if(c.getCount() == 0) tvIS.setText("Error!");
                     if(c.moveToFirst()){
-
                         do{
                             String usuarioEncontrado = c.getString(0);
                             String passwordEncontrada = c.getString(1);
-
-                            if(usuarioString.equals(usuarioEncontrado)&&passwordString.equals(passwordEncontrada))
-                            {
+                            if(usuarioString.equals(usuarioEncontrado)&&passwordString.equals(passwordEncontrada)) {
                                 llamarPanel();
+                                res++;
                             }
-                        }while (c.moveToNext());
-                        if(tvIS.getText().toString().equals("")){
-                            tvIS.setText("Error!");
+                        } while (c.moveToNext());
+                        if(tvIS.getText().toString().equals("")) tvIS.setText("Error!");
+                        if(res > 0) {
+                            tvIS.setText("");
                         }
                     }
-
                 }
                 catch (Exception ex){
                     Toast.makeText(LoginActivity.this, "Error: "+ex.getMessage(), Toast.LENGTH_LONG).show();
                 }
-
             }
-
         });
     }
   public void llamarPanel()

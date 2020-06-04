@@ -113,8 +113,9 @@ public class RegisterActivity extends AppCompatActivity {
 
                         }else{
                             Toast.makeText(RegisterActivity.this,"Se insertó correctamente",Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(RegisterActivity.this,InicioActividad.class);
-                            startActivity(intent);
+                            //Intent intent = new Intent(RegisterActivity.this,InicioActividad.class);
+                            //startActivity(intent);
+                            finish();
                         }
                     }
                     else

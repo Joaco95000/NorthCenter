@@ -42,9 +42,9 @@
     <string name="nombrePelicula">Nombre</string>
     <string name="generoPelicula">Genero</string>
     <string name="companiaPelicula">Compania</string>
-    <string name="duracionPelicula">Duraccion</string>
-    <string name="puntuacionPelicula">Puntuacion</string>
-    <string name="registroPeliculas">Peliculas</string>
+    <string name="duracionPelicula">Duración</string>
+    <string name="puntuacionPelicula">Puntuación</string>
+    <string name="registroPeliculas">Películas</string>
     <!-- View Peliculas -->
     <string name="txtBtnRegistrarPelicula">Registrar Película</string>
     <!-- ListUser -->
