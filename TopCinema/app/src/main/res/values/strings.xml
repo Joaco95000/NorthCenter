@@ -66,4 +66,5 @@
     <string name="tvP">Lista de Películas</string>
     <string name="txtEtFiltrarUsuario">Filtrar Usuario por nombre de usuario</string>
     <string name="txtEtFiltrarPelicula">Filtrar Película por nombre</string>
+    <string name="btnAgregarFoto">Añadir Carátula</string>
 </resources>

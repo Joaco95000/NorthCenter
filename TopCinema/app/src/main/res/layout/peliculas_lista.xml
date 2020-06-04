@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
         <ScrollView
             android:layout_width="match_parent"
@@ -15,6 +15,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/estadoRojo"
                 android:orientation="horizontal">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -31,18 +32,22 @@
                         android:fontFamily="@font/comfortaa_light"
                         android:textStyle="bold"
                         android:textColor="@color/grey"/>
+
                     <TextView
                         android:id="@+id/tvNombre"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+
                         android:textSize="20sp"
                         android:fontFamily="@font/comfortaa_light"
                         android:textStyle="bold"
                         android:textColor="@color/grey" />
+
                     <TextView
                         android:id="@+id/tvCompania"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+
                         android:textSize="20sp"
                         android:fontFamily="@font/comfortaa_light"
                         android:textStyle="bold"
@@ -52,7 +57,13 @@
                         android:layout_height="2dp"
                         android:background="@color/black" />
                 </LinearLayout>
+
             </LinearLayout>
         </ScrollView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#000000" />
     </LinearLayout>
 </LinearLayout>
