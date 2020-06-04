@@ -26,27 +26,23 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
-        <Button
+        <ImageButton
             android:id="@+id/btnEspanol"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:background="#B11623"
-            android:fontFamily="@font/chango"
-            android:text="@string/btnEspanol"
-            android:textColor="#CCCCCC" />
+            android:background="@android:color/transparent"
+            android:src="@drawable/icon_spanish"/>
 
-        <Button
+        <ImageButton
             android:id="@+id/btnIngles"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:background="#B11623"
-            android:fontFamily="@font/chango"
-            android:text="@string/btnIngles"
-            android:textColor="#CCCCCC" />
+            android:background="@android:color/transparent"
+            android:src="@drawable/icon_english"/>
 
     </LinearLayout>
 
