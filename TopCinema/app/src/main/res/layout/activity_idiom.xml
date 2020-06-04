@@ -8,48 +8,45 @@
     android:gravity="top"
     android:orientation="vertical"
     tools:context=".IdiomActivity">
-
     <TextView
         android:id="@+id/txtCambiarIdioma"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_gravity="top"
-        android:background="@color/estadoRojo"
-        android:fontFamily="@font/chango"
+        android:fontFamily="@font/comfortaa_light"
         android:gravity="center"
         android:text="@string/txtCambiarIdioma"
-        android:textColor="@color/black"
+        android:textColor="@color/grey"
         android:textSize="30sp" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
         android:gravity="center"
         android:orientation="vertical">
-
         <Button
             android:id="@+id/btnEspanol"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:background="@color/estadoRojo"
-            android:fontFamily="@font/chango"
+            android:fontFamily="@font/comfortaa_light"
             android:text="@string/btnEspanol"
+            android:textSize="24sp"
+            android:textStyle="bold"
             android:textColor="@color/grey" />
-
         <Button
             android:id="@+id/btnIngles"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:background="@color/estadoRojo"
-            android:fontFamily="@font/chango"
+            android:fontFamily="@font/comfortaa_light"
             android:text="@string/btnIngles"
+            android:textSize="24sp"
+            android:textStyle="bold"
             android:textColor="@color/grey" />
-
     </LinearLayout>
-
     <Button
         android:id="@+id/btnVolver"
         android:layout_width="match_parent"
@@ -58,10 +55,10 @@
         android:layout_marginTop="300dp"
         android:layout_marginRight="15dp"
         android:background="@color/estadoRojo"
-        android:fontFamily="@font/chango"
+        android:fontFamily="@font/comfortaa_light"
         android:onClick="volverLogin"
         android:text="@string/btnVolverIdiom"
+        android:textSize="24sp"
+        android:textStyle="bold"
         android:textColor="@color/grey" />
-
-
 </LinearLayout>

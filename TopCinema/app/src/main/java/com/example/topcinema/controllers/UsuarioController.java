@@ -46,4 +46,20 @@ public class UsuarioController {
         }
         return array_list;
     }
+
+    public ArrayList listaDeUsuarios(String buscar) {
+        SQLiteDatabase baseD = ayudanteBaseDeDatos.getWritableDatabase();
+        ArrayList<Usuario> array_list = new ArrayList<Usuario>();
+        Cursor cursor = baseD.rawQuery( "SELECT * FROM " + NOMBRE_TABLA + " WHERE usuario LIKE '%" + buscar + "%';", null );
+        cursor.moveToFirst();
+        while(cursor.isAfterLast() == false) {
+            String nombre = cursor.getString(cursor.getColumnIndex("nombre"));
+            String correo = cursor.getString(cursor.getColumnIndex("correo"));
+            String usuario = cursor.getString(cursor.getColumnIndex("usuario"));
+            Usuario u = new Usuario(nombre,correo,usuario);
+            array_list.add(u);
+            cursor.moveToNext();
+        }
+        return array_list;
+    }
 }
