@@ -12,6 +12,9 @@ import android.widget.Toast;
 import com.example.topcinema.controllers.UsuarioController;
 import com.example.topcinema.modelos.Usuario;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class RegisterActivity extends AppCompatActivity {
 
     Button btnCrear;
@@ -27,6 +30,11 @@ public class RegisterActivity extends AppCompatActivity {
 
     Usuario user;
     UsuarioController usuarioController;
+
+    //pattern correo
+    Pattern pat = Pattern.compile("([a-z0-9]+(\\.?[a-z0-9])*)+@(([a-z]+)\\.([a-z]+))+");
+    //patern texto
+    Pattern patTexto = Pattern.compile("[a-zA-Z]");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,9 +57,11 @@ public class RegisterActivity extends AppCompatActivity {
             {
                 try{
                     String correo = etCorreo.getText().toString();
-
+                    Matcher matcher = pat.matcher(correo);
                     String nombre = etNombre.getText().toString();
+                    Matcher matcherN = patTexto.matcher(nombre);
                     String apellido1 = etApellido1.getText().toString();
+                    Matcher matcherAp = patTexto.matcher(apellido1);
                     String apellido2 = etApellido2.getText().toString();
                     String edad = etEdad.getText().toString();
                     String usuario = etUsuario.getText().toString();
@@ -77,8 +87,18 @@ public class RegisterActivity extends AppCompatActivity {
                         etNombre.requestFocus();
                         return;
                     }
+                    if (matcherN.find()==false){
+                        etNombre.setError("¿Seguro que has introducido el nombre correctamente?");
+                        etNombre.requestFocus();
+                        return;
+                    }
                     if ("".equals(apellido1)) {
                         etApellido1.setError("debes ingresar el apellido");
+                        etApellido1.requestFocus();
+                        return;
+                    }
+                    if (matcherAp.find()==false){
+                        etApellido1.setError("¿Seguro que has introducido el apellido correctamente?");
                         etApellido1.requestFocus();
                         return;
                     }
@@ -87,6 +107,17 @@ public class RegisterActivity extends AppCompatActivity {
                         etEdad.requestFocus();
                         return;
                     }
+                    if ("".equals(correo)){
+                        etCorreo.setError("debes ingresar el correo");
+                        etCorreo.requestFocus();
+                        return;
+                    }
+                    if (matcher.find()==false){
+                        etCorreo.setError("El correo ingresado no es válido");
+                        etCorreo.requestFocus();
+                        return;
+                    }
+
                     if ("".equals(usuario)){
                         etUsuario.setError("debes ingresar el usuario");
                         etUsuario.requestFocus();
