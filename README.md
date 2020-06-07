@@ -1,8 +1,8 @@
-#TopCinema
+# TopCinema
 
 Esta es una aplicación que te da la posibilidad de registrar y visualizar peliculas de todo tipo, todo esto con acceso desde sus cuentas. La aplicacion te permite registrarte y poder cambiar el idioma (español, ingles, quechua). Tambien tenemos un breve vistazo de quienes somos.  
 
-###Integrantes:
+### Integrantes:
 
 * Sergio Rodrigo Iriarte Zamorano
 * Francisco Joaquin Paniagua Claure
@@ -10,7 +10,7 @@ Esta es una aplicación que te da la posibilidad de registrar y visualizar pelic
 * Leonel Messi Calderon Rivas
 * Pablo Daniel Rodriguez Solis
 
-###Marco Teorico
+### Marco Teorico:
 
 * Git: Herramienta de control de versiones.
 * Android Studio: IDE para aplicaciones android (Lenguaje: Java).
@@ -19,7 +19,7 @@ Esta es una aplicación que te da la posibilidad de registrar y visualizar pelic
 * Microsoft Teams: Plataforma de comunicacion.
 * Scrum: Framework de desarrollo.
 
-###Marco Practico
+### Marco Practico:
 
 * Git: Uso basico del Git branching.
 * Android Studio: Desarrollo de toda la aplicacion. 
@@ -28,6 +28,6 @@ Esta es una aplicación que te da la posibilidad de registrar y visualizar pelic
 * Microsoft Teams: las reuniones se hacian por este medio (Daily Meetings).
 * Scrum: La base de como organizarnos para desarrollar la app.
 
-###Conclusion
+### Conclusion:
 Gracias a esta aplicacion hemos podido dar inicio a nuevos metodos de trabajos grupales.
 
