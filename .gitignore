@@ -13,3 +13,8 @@
 .externalNativeBuild
 .cxx
 .idea/*
+*.iws
+.idea/libraries
+.idea/tasks.xml
+.idea/vcs.xml
+.idea/workspace.xml
