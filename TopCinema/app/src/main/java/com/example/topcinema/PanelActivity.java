@@ -14,6 +14,9 @@ public class PanelActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_panel);
     }
+    @Override
+    public void onBackPressed() {}
+
     public void cargarUserView(View w)
     {
         try {
