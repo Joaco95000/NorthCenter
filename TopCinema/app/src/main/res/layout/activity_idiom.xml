@@ -29,6 +29,7 @@
             android:id="@+id/btnEspanol"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="3dp"
             android:layout_margin="15dp"
             android:background="@android:color/transparent"
             android:src="@drawable/icon_spanish"/>
@@ -37,9 +38,19 @@
             android:id="@+id/btnIngles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="3dp"
             android:layout_margin="15dp"
             android:background="@android:color/transparent"
             android:src="@drawable/icon_english"/>
+
+        <ImageButton
+            android:id="@+id/btnQuechua"
+            android:layout_width="71dp"
+            android:layout_height="71dp"
+            android:layout_margin="15dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/icon_quechua" />
+
     </LinearLayout>
     <Button
         android:id="@+id/btnVolver"

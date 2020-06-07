@@ -15,6 +15,7 @@ import java.util.Locale;
 public class IdiomActivity extends AppCompatActivity {
     ImageButton btnEspanol;
     ImageButton btnIngles;
+    ImageButton btnQuecha;
     Button btnVolver;
     Locale localizacion;
 
@@ -25,6 +26,7 @@ public class IdiomActivity extends AppCompatActivity {
 
         btnEspanol = findViewById(R.id.btnEspanol);
         btnIngles = findViewById(R.id.btnIngles);
+        btnQuecha = findViewById(R.id.btnQuechua);
         btnVolver = findViewById(R.id.btnVolver);
 
         btnEspanol.setOnClickListener(new View.OnClickListener() {
@@ -52,9 +54,17 @@ public class IdiomActivity extends AppCompatActivity {
                 refrescar();
             }
         });
-
-
-
+        btnQuecha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                localizacion = new Locale("qu", "BO");
+                Locale.setDefault(localizacion);
+                Configuration config = new Configuration();
+                config.locale = localizacion;
+                getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+                refrescar();
+            }
+        });
     }
 
     public void refrescar()
