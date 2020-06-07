@@ -3,14 +3,15 @@ package com.example.topcinema.modelos;
 public class Pelicula {
 
     private String nombre, genero, compania; //TODO: ver si necesitamos director, recaudacion, presupuesto, fecha de estreno, premios :v
-    private int puntuacion, duracion; //TODO: esto es un double?
+    private int id, puntuacion, duracion; //TODO: esto es un double?
     private String foto;
 
 
     public Pelicula(){}
 
-    public Pelicula(String nombre, String compania)
+    public Pelicula(int id, String nombre, String compania)
     {
+        this.id = id;
         this.nombre = nombre;
         this.compania = compania;
     }
@@ -24,6 +25,22 @@ public class Pelicula {
         this.puntuacion = puntuacion;
         this.foto = foto;
     }
+
+    public Pelicula(int id, String nombre, String genero, String compania, int duracion, int puntuacion,String foto)
+    {
+        this.id = id;
+        this.nombre = nombre;
+        this.genero = genero;
+        this.compania = compania;
+        this.duracion = duracion;
+        this.puntuacion = puntuacion;
+        this.foto = foto;
+    }
+
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) { this.id = id; }
 
     public String getNombre() {
         return nombre;
@@ -46,7 +63,7 @@ public class Pelicula {
         this.compania = compania;
     }
 
-    public double getDuracion() {
+    public int getDuracion() {
         return duracion;
     }
     public void setDuracion(int duracion) {

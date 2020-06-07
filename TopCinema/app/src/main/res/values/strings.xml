@@ -67,4 +67,8 @@
     <string name="txtEtFiltrarUsuario">Filtrar Usuario por nombre de usuario</string>
     <string name="txtEtFiltrarPelicula">Filtrar Película por nombre</string>
     <string name="btnAgregarFoto">Añadir Carátula</string>
+    <!-- Update Pelicula -->
+    <string name="tituloUpdatePelicula">Actualizar Película</string>
+    <string name="btnActualizarFoto">Actualizar Carátula</string>
+    <string name="botonActualizar">ACTUALIZAR</string>
 </resources>

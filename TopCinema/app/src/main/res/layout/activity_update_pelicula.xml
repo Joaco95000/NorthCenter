@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/darkGrey"
+    tools:context=".UpdatePeliculaActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            <TextView
+                android:id="@+id/txtTituloUpdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/comfortaa_light"
+                android:gravity="center"
+                android:text="@string/tituloUpdatePelicula"
+                android:textSize="4mm"
+                android:textColor="@color/grey" />
+            <EditText
+                android:id="@+id/etUpdateNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:ems="10"
+                android:hint="@string/nombrePelicula"
+                android:inputType="textPersonName"
+                android:fontFamily="@font/comfortaa_light"
+                android:textColor="@color/grey"
+                android:textColorHint="@color/grey" />
+            <EditText
+                android:id="@+id/etUpdateGenero"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:ems="10"
+                android:hint="@string/generoPelicula"
+                android:inputType="textPersonName"
+                android:fontFamily="@font/comfortaa_light"
+                android:textColor="@color/grey"
+                android:textColorHint="@color/grey"/>
+
+            <EditText
+                android:id="@+id/etUpdateCompania"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:ems="10"
+                android:hint="@string/companiaPelicula"
+                android:inputType="textPersonName"
+                android:fontFamily="@font/comfortaa_light"
+                android:textColor="@color/grey"
+                android:textColorHint="@color/grey"/>
+            <EditText
+                android:id="@+id/etUpdateDuracion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:ems="10"
+                android:fontFamily="@font/comfortaa_light"
+                android:hint="@string/duracionPelicula"
+                android:inputType="number"
+                android:textColor="@color/grey"
+                android:textColorHint="@color/grey"/>
+            <EditText
+                android:id="@+id/etUpdatePuntuacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:ems="10"
+                android:fontFamily="@font/comfortaa_light"
+                android:hint="@string/puntuacionPelicula"
+                android:inputType="number"
+                android:textColor="@color/grey"
+                android:textColorHint="@color/grey" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/fotoPUpdate"
+                    android:layout_width="150dp"
+                    android:layout_height="250dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@android:mipmap/sym_def_app_icon" />
+
+                <Button
+                    android:id="@+id/btnUpdateImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/btnActualizarFoto"
+                    android:background="#B11623"
+                    android:textColor="#CCCCCC"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnActualizar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/estadoRojo"
+                android:fontFamily="@font/comfortaa_light"
+                android:text="@string/botonActualizar"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/grey" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

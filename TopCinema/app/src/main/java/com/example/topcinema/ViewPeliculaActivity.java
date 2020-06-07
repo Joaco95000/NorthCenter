@@ -1,8 +1,11 @@
 package com.example.topcinema;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -16,11 +19,15 @@ import com.example.topcinema.controllers.PeliculaController;
 import com.example.topcinema.modelos.Pelicula;
 
 public class ViewPeliculaActivity extends AppCompatActivity {
-    PeliculaController peliculaController;
-    RecyclerView rvPeliculas;
     ArrayList<Pelicula> listaDatos = new ArrayList<Pelicula>();
+
+    RecyclerView rvPeliculas;
+    AdaptadorPeliculasDatos adaptadorDatos;
+
     EditText etFiltrarPelicula;
     ImageView imgPe;
+
+    PeliculaController peliculaController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,23 +36,19 @@ public class ViewPeliculaActivity extends AppCompatActivity {
         rvPeliculas = findViewById(R.id.rvPeliculas);
         etFiltrarPelicula= findViewById(R.id.etFiltrarPelicula);
         imgPe = findViewById(R.id.fotoP);
+        rvPeliculas = findViewById(R.id.rvPeliculas);
         mostrarLista();
 
         etFiltrarPelicula.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+            @Override
+            public void afterTextChanged(Editable s) { }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(count == 0) mostrarLista();
+                if(s.length() == 0) mostrarLista();
                 else mostrarLista(s.toString());
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
             }
         });
     }
@@ -54,16 +57,74 @@ public class ViewPeliculaActivity extends AppCompatActivity {
         rvPeliculas.setLayoutManager(new GridLayoutManager(this, 1));
         peliculaController = new PeliculaController(ViewPeliculaActivity.this);
         listaDatos = peliculaController.listaDePeliculas();
-        AdaptadorPeliculasDatos adaptadorDatos = new AdaptadorPeliculasDatos(listaDatos);
+        adaptadorDatos = new AdaptadorPeliculasDatos(listaDatos);
         rvPeliculas.setAdapter(adaptadorDatos);
+
+        adaptadorDatos.setOnItemClickListener(new AdaptadorPeliculasDatos.OnItemClickListener() {
+            @Override
+            public void onUpdateClick(int id) {
+                Intent intent = new Intent(getApplicationContext(), UpdatePeliculaActivity.class);
+                intent.putExtra("id", id);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onDeleteClick(int id) {
+                deleteID(id);
+            }
+        });
     }
 
     public void mostrarLista(String buscar){
         rvPeliculas.setLayoutManager(new GridLayoutManager(this, 1));
         peliculaController = new PeliculaController(ViewPeliculaActivity.this);
         listaDatos = peliculaController.listaDePeliculas(buscar);
-        AdaptadorPeliculasDatos adaptadorDatos = new AdaptadorPeliculasDatos(listaDatos);
+        adaptadorDatos = new AdaptadorPeliculasDatos(listaDatos);
         rvPeliculas.setAdapter(adaptadorDatos);
+
+        adaptadorDatos.setOnItemClickListener(new AdaptadorPeliculasDatos.OnItemClickListener() {
+            @Override
+            public void onUpdateClick(int id) {
+                Intent intent = new Intent(getApplicationContext(), UpdatePeliculaActivity.class);
+                intent.putExtra("id", id);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onDeleteClick(int id) {
+                deleteID(id);
+            }
+        });
+    }
+
+    public void deleteID(final int id){
+        final Pelicula p = peliculaController.peliculaEspecifica(id);
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setMessage("¿Estás segur@ que quieres eliminar esta película: " + p.getNombre() + "\nYa no se podrá recuperar los datos cuando se elimina.")
+                .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if(peliculaController.eliminarPelicula(id)>0) Toast.makeText(ViewPeliculaActivity.this, "Si se eliminó la película", Toast.LENGTH_LONG).show();
+                        else Toast.makeText(ViewPeliculaActivity.this, "Se generó un error, intenta luego", Toast.LENGTH_LONG).show();
+                        if(etFiltrarPelicula.length() == 0) mostrarLista();
+                        else mostrarLista(etFiltrarPelicula.getText().toString());
+                    }
+                })
+                .setOnCancelListener(new DialogInterface.OnCancelListener() {
+                    @Override
+                    public void onCancel(DialogInterface dialog) {
+                        Toast.makeText(ViewPeliculaActivity.this, "No se eliminó la película", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(ViewPeliculaActivity.this, "No se eliminó la película", Toast.LENGTH_SHORT).show();
+                    }
+                });
+        AlertDialog alt = alert.create();
+        alt.setTitle("Eliminando Película");
+        alt.show();
     }
 
     public void cargarRegisterPeliculas(View w)
