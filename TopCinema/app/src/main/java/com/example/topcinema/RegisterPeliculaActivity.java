@@ -3,6 +3,7 @@ package com.example.topcinema;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.service.autofill.FieldClassification;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,6 +17,9 @@ import com.example.topcinema.controllers.UsuarioController;
 import com.example.topcinema.modelos.Pelicula;
 import com.example.topcinema.modelos.Usuario;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class RegisterPeliculaActivity extends AppCompatActivity {
         Button btnCrear, btnAddImage;
 
@@ -24,6 +28,7 @@ public class RegisterPeliculaActivity extends AppCompatActivity {
         EditText etCompania;
         EditText etDuracion;
         EditText etPuntuacion;
+        Pattern patPuntuacion = Pattern.compile("([1-5])");
 
         ImageView fotoP;
 
@@ -70,6 +75,7 @@ public class RegisterPeliculaActivity extends AppCompatActivity {
                     String compania = etCompania.getText().toString();
                     String duracion = etDuracion.getText().toString();
                     String puntuacion = etPuntuacion.getText().toString();
+                    Matcher matcherP = patPuntuacion.matcher(puntuacion);
 
 
                     if ("".equals(nombre)) {
@@ -98,18 +104,36 @@ public class RegisterPeliculaActivity extends AppCompatActivity {
                         etPuntuacion.requestFocus();
 
                     } else {
-                        int duracionP = Integer.parseInt(duracion);
-                        int puntuacionP = Integer.parseInt(puntuacion);
-                        Toast.makeText(getApplicationContext(),imgP,Toast.LENGTH_SHORT).show();
-                        pelicula = new Pelicula(nombre, genero, compania, duracionP, puntuacionP,imgP);
-                        long creado = peliculaController.nuevaPelicula(pelicula);
-                        if (creado == -1) {
-                            Toast.makeText(RegisterPeliculaActivity.this, "Error al insertar pelicula", Toast.LENGTH_LONG).show();
-
-                        } else {
-                            Toast.makeText(RegisterPeliculaActivity.this, "Se insertó correctamente", Toast.LENGTH_LONG).show();
-                            finish();
+                        if(puntuacion.length()>1)
+                        {
+                            etPuntuacion.setError("Dato no válido");
+                            etPuntuacion.requestFocus();
+                            return;
                         }
+                        else
+                        {
+                            if(matcherP.find()==false)
+                            {
+                                etPuntuacion.setError("El dato debe estar entre 1-5");
+                                etPuntuacion.requestFocus();
+                                return;
+                            }
+                            else{
+                                int duracionP = Integer.parseInt(duracion);
+                                int puntuacionP = Integer.parseInt(puntuacion);
+                                Toast.makeText(getApplicationContext(),imgP,Toast.LENGTH_SHORT).show();
+                                pelicula = new Pelicula(nombre, genero, compania, duracionP, puntuacionP,imgP);
+                                long creado = peliculaController.nuevaPelicula(pelicula);
+                                if (creado == -1) {
+                                    Toast.makeText(RegisterPeliculaActivity.this, "Error al insertar pelicula", Toast.LENGTH_LONG).show();
+
+                                } else {
+                                    Toast.makeText(RegisterPeliculaActivity.this, "Se insertó correctamente", Toast.LENGTH_LONG).show();
+                                    finish();
+                                }
+                            }
+                        }
+
                     }
                 }
                 catch (Exception ex)
