@@ -18,3 +18,7 @@
 .idea/tasks.xml
 .idea/vcs.xml
 .idea/workspace.xml
+/build
+/.idea
+*.iml
+local.properties
