@@ -6,11 +6,13 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
+    android:padding="10dp"
     android:background="@color/darkGrey"
     tools:context=".MainActivity">
+
     <ImageView
         android:id="@+id/ivLogo"
-        android:layout_width="338dp"
+        android:layout_width="300dp"
         android:layout_height="420dp"
         app:srcCompat="@drawable/topcinemalogo" />
 </LinearLayout>

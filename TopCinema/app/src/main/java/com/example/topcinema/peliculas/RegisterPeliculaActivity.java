@@ -1,11 +1,10 @@
-package com.example.topcinema;
+package com.example.topcinema.peliculas;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.service.autofill.FieldClassification;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,10 +13,10 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.topcinema.R;
 import com.example.topcinema.controllers.PeliculaController;
-import com.example.topcinema.controllers.UsuarioController;
 import com.example.topcinema.modelos.Pelicula;
-import com.example.topcinema.modelos.Usuario;
 
 import java.io.IOException;
 import java.util.regex.Matcher;
@@ -106,22 +105,17 @@ public class RegisterPeliculaActivity extends AppCompatActivity {
                         etDuracion.requestFocus();
                         return;
                     }
-
                     if ("".equals(puntuacion)) {
                         etPuntuacion.setError("debes ingresar la puntuacion de la pelicula");
                         etPuntuacion.requestFocus();
-
                     } else {
-                        if(puntuacion.length()>1)
-                        {
+                        if(puntuacion.length()>1) {
                             etPuntuacion.setError("Dato no válido");
                             etPuntuacion.requestFocus();
                             return;
                         }
-                        else
-                        {
-                            if(matcherP.find()==false)
-                            {
+                        else {
+                            if(matcherP.find()==false) {
                                 etPuntuacion.setError("El dato debe estar entre 1-5");
                                 etPuntuacion.requestFocus();
                                 return;

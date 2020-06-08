@@ -1,13 +1,13 @@
 <resources>
     <string name="app_name">TopCinema</string>
     <!--Main-->
-    <string name="txtBtnInicioQuienesSomos">¿QUIENES SOMOS?</string>
+    <string name="txtBtnInicioQuienesSomos">¿QUIÉNES SOMOS?</string>
     <string name="txtBtnInicioSistema">Ingresar al Sistema</string>
     <string name="txtBtnInicioRegistro">Registro</string>
     <!--Quienes Somos-->
     <string name="_2020_cochabamba_bolivia">2020 - Cochabamba, Bolivia</string>
-    <string name="qui_nes_somos">¿Quiénes somos?</string>
-    <string name="en_topcinema_creamos_historias_m_gicas_emocionantes_divertidas_inquietantes_vivimos_el_cine_desde_la_idea_hasta_la_pantalla_por_eso_queremos_traerte_las_mejores_pel_culas_y_a_las_personas_que_las_hacen_posible_para_que_te_hagan_so_ar_y_vibrar_n_n_ven_y_vive_un_plan_filmax">En TopCinema creamos historias mágicas, emocionantes, divertidas, inquietantes.... Vivimos el cine desde la idea hasta la pantalla. Por eso queremos traerte las mejores películas y a las personas que las hacen posible para que te hagan soñar y vibrar.   ¡Ven y vive un Plan TopCinema!</string>
+    <string name="qui_nes_somos">¿QUIÉNES SOMOS?</string>
+    <string name="en_topcinema_creamos_historias_m_gicas_emocionantes_divertidas_inquietantes_vivimos_el_cine_desde_la_idea_hasta_la_pantalla_por_eso_queremos_traerte_las_mejores_pel_culas_y_a_las_personas_que_las_hacen_posible_para_que_te_hagan_so_ar_y_vibrar_n_n_ven_y_vive_un_plan_filmax">En TopCinema creamos historias mágicas, emocionantes, divertidas, inquietantes.... Vivimos el cine desde la idea hasta la pantalla. Por eso queremos traerte las mejores películas y a las personas que las hacen posible para que te hagan soñar y vibrar. ¡Ven y vive un Plan TopCinema!</string>
     <string name="qu_prestaciones_encontrar_s_en_topcinema">¿Qué prestaciones encontrarás en TopCinema?</string>
     <string name="_16_salas_con_gran_capacidad_de_aforo_m_s_de_3000_butacas_nunca_te_quedar_s_sin_sitio">16 salas con gran capacidad de aforo (¡más de 3000 butacas!), nunca te quedarás sin sitio.</string>
     <string name="inmersi_n_total_pantallas_gigantes_y_c_modas_butacas_en_grada_para_que_disfrutes_del_nuevo_cine">Inmersión total: Pantallas gigantes y cómodas butacas en grada para que disfrutes del nuevo cine.</string>
@@ -41,14 +41,14 @@
     <string name="tituloIngresarPelicula">AÑADIR PELICULA</string>
     <string name="nombrePelicula">Nombre</string>
     <string name="generoPelicula">Genero</string>
-    <string name="companiaPelicula">Compania</string>
+    <string name="companiaPelicula">Compañía</string>
     <string name="duracionPelicula">Duración</string>
     <string name="puntuacionPelicula">Puntuación</string>
     <string name="registroPeliculas">Películas</string>
     <!-- View Peliculas -->
     <string name="txtBtnRegistrarPelicula">Registrar Película</string>
     <!-- ListUser -->
-    <string name="tvT">Lista de Usuarios</string>
+    <string name="tvT">LISTA DE USUARIOS</string>
     <string name="btnRegistrarUsuario">REGISTRAR USUARIO</string>
     <string name="tvN">Nombre:</string>
     <string name="TVc">Email:</string>
@@ -63,7 +63,7 @@
     <string name="btnEspanol">Español</string>
     <string name="btnIngles">Inglés</string>
     <string name="btnVolverIdiom">Volver</string>
-    <string name="tvP">Lista de Películas</string>
+    <string name="tvP">LISTA DE PELÍCULAS</string>
     <string name="txtEtFiltrarUsuario">Filtrar Usuario por nombre de usuario</string>
     <string name="txtEtFiltrarPelicula">Filtrar Película por nombre</string>
     <string name="btnAgregarFoto">Añadir Carátula</string>

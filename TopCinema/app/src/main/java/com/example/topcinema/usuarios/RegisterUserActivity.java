@@ -1,21 +1,21 @@
-package com.example.topcinema;
+package com.example.topcinema.usuarios;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.topcinema.R;
 import com.example.topcinema.controllers.UsuarioController;
 import com.example.topcinema.modelos.Usuario;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class RegisterActivity extends AppCompatActivity {
+public class RegisterUserActivity extends AppCompatActivity {
 
     Button btnCrear;
 
@@ -38,7 +38,7 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.activity_user_register);
         btnCrear = findViewById(R.id.btnCrear);
 
         etCorreo = findViewById(R.id.etCorreo);
@@ -49,7 +49,7 @@ public class RegisterActivity extends AppCompatActivity {
         etUsuario = findViewById(R.id.etUsuario);
         etPassword1 = findViewById(R.id.etPassword);
         etPassword2 = findViewById(R.id.etPassword2);
-        usuarioController = new UsuarioController(RegisterActivity.this);
+        usuarioController = new UsuarioController(RegisterUserActivity.this);
 
         btnCrear.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -140,10 +140,10 @@ public class RegisterActivity extends AppCompatActivity {
                         user = new Usuario(correo,nombre,apellido1,apellido2,usuario,password1,edadF);
                         long creado = usuarioController.nuevoUsuario(user);
                         if (creado==-1){
-                            Toast.makeText(RegisterActivity.this, "Error al insertar el usuario",Toast.LENGTH_LONG).show();
+                            Toast.makeText(RegisterUserActivity.this, "Error al insertar el usuario",Toast.LENGTH_LONG).show();
 
                         }else{
-                            Toast.makeText(RegisterActivity.this,"Se insertó correctamente",Toast.LENGTH_LONG).show();
+                            Toast.makeText(RegisterUserActivity.this,"Se insertó correctamente",Toast.LENGTH_LONG).show();
                             //Intent intent = new Intent(RegisterActivity.this,InicioActividad.class);
                             //startActivity(intent);
                             finish();
@@ -158,7 +158,7 @@ public class RegisterActivity extends AppCompatActivity {
                     //*/
 
                 }catch (Exception ex){
-                    Toast.makeText(RegisterActivity.this, ex.getMessage(),Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegisterUserActivity.this, ex.getMessage(),Toast.LENGTH_LONG).show();
                 }
             }
 

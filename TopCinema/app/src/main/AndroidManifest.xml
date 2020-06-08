@@ -11,14 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UpdatePeliculaActivity"></activity>
-        <activity android:name=".ViewPeliculaActivity" />
-        <activity android:name=".RegisterPeliculaActivity" />
-        <activity android:name=".ViewUserActivity" />
-        <activity android:name=".IdiomActivity" />
+        <activity android:name=".peliculas.UpdatePeliculaActivity"></activity>
+        <activity android:name=".peliculas.ViewPeliculaActivity" />
+        <activity android:name=".peliculas.RegisterPeliculaActivity" />
+        <activity android:name=".usuarios.ViewUserActivity" />
+        <activity android:name=".LanguageActivity" />
         <activity android:name=".PanelActivity" />
         <activity android:name=".InicioActividad" />
-        <activity android:name=".RegisterActivity" />
+        <activity android:name=".usuarios.RegisterUserActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

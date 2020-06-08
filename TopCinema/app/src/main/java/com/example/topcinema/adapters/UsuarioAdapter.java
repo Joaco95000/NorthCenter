@@ -1,4 +1,4 @@
-package com.example.topcinema.usuarioAdapter;
+package com.example.topcinema.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +12,7 @@ import com.example.topcinema.R;
 import com.example.topcinema.modelos.Usuario;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.UsuariosViewHolder> {
     ArrayList<Usuario> listUsuarios;
@@ -28,9 +29,21 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.Usuarios
         }
 
         public void asignarUsuarios (Usuario u){
-            usuario.setText("USUARIO: " + u.getUsuario());
-            nombre.setText("Nombre: " + u.getNombre());
-            correo.setText("Correo: " + u.getCorreo());
+            if(Locale.getDefault().getLanguage().equals("en")){
+                usuario.setText("USERNAME: " + u.getUsuario());
+                nombre.setText("Name: " + u.getNombre());
+                correo.setText("Email: " + u.getCorreo());
+            }
+            else if(Locale.getDefault().getLanguage().equals("es")){
+                usuario.setText("USUARIO: " + u.getUsuario());
+                nombre.setText("Nombre: " + u.getNombre());
+                correo.setText("Correo: " + u.getCorreo());
+            }
+            else{ //quechua
+                usuario.setText("RUNA: " + u.getUsuario());
+                nombre.setText("Sutiy: " + u.getNombre());
+                correo.setText("Ch'aski: " + u.getCorreo());
+            }
         }
     }
 
@@ -40,7 +53,7 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.Usuarios
 
     @NonNull
     @Override
-    public UsuarioAdapter.UsuariosViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public UsuariosViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.user_list, parent, false); //ACA ESTA ELEMENTOS_LISTA parent, false
         return new UsuariosViewHolder(view);
     }

@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import java.util.Locale;
 
-public class IdiomActivity extends AppCompatActivity {
+public class LanguageActivity extends AppCompatActivity {
     ImageButton btnEspanol;
     ImageButton btnIngles;
     ImageButton btnQuecha;
@@ -22,7 +22,7 @@ public class IdiomActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_idiom);
+        setContentView(R.layout.activity_language);
 
         btnEspanol = findViewById(R.id.btnEspanol);
         btnIngles = findViewById(R.id.btnIngles);

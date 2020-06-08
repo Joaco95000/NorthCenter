@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.topcinema.peliculas.ViewPeliculaActivity;
+import com.example.topcinema.usuarios.ViewUserActivity;
+
 public class PanelActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {

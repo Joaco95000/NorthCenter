@@ -1,4 +1,4 @@
-package com.example.topcinema;
+package com.example.topcinema.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,10 +7,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.topcinema.R;
 import com.example.topcinema.modelos.Pelicula;
 import java.util.ArrayList;
+import java.util.Locale;
 
-public class AdaptadorPeliculasDatos extends RecyclerView.Adapter<AdaptadorPeliculasDatos.ViewHolderDatos> {
+public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHolderDatos> {
     //Arreglo Dinamico:
     ArrayList<Pelicula> listaDatos;
     private OnItemClickListener mListener;
@@ -26,11 +29,12 @@ public class AdaptadorPeliculasDatos extends RecyclerView.Adapter<AdaptadorPelic
 
     //Vamos a crear la clase
     public static class ViewHolderDatos extends RecyclerView.ViewHolder { //MAYBE: static
-        public TextView tvNombre, tvCompania, tvID;
+        public TextView tvNombre, tvCompania, tvID, tvPeliculaTituloCard;
         public ImageView ivDelete, ivUpdate, ivPeliculaPoster;
         public ViewHolderDatos(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
             ivPeliculaPoster = itemView.findViewById(R.id.ivPeliculaPoster);
+            tvPeliculaTituloCard = itemView.findViewById(R.id.tvPeliculaTituloCard);
             tvID = itemView.findViewById(R.id.tvID);
             tvNombre = itemView.findViewById(R.id.tvNombre);
             tvCompania = itemView.findViewById(R.id.tvCompania);
@@ -58,20 +62,35 @@ public class AdaptadorPeliculasDatos extends RecyclerView.Adapter<AdaptadorPelic
         //vamos a cargar la cadena de caracteres en el TextView
         public void asignarDatos(Pelicula s) {
             ivPeliculaPoster.setImageBitmap(s.getFoto());
-            tvID.setText(s.getId()+"");
-            tvNombre.setText("Nombre: " + s.getNombre());
-            tvCompania.setText("Compañía: " + s.getCompania());
+            if(Locale.getDefault().getLanguage().equals("en")){
+                tvID.setText(s.getId()+"");
+                tvPeliculaTituloCard.setText("MOVIE:");
+                tvNombre.setText("Name: " + s.getNombre());
+                tvCompania.setText("Company: " + s.getCompania());
+            }
+            else if(Locale.getDefault().getLanguage().equals("es")){
+                tvID.setText(s.getId()+"");
+                tvPeliculaTituloCard.setText("PELÍCULA:");
+                tvNombre.setText("Nombre: " + s.getNombre());
+                tvCompania.setText("Compañía: " + s.getCompania());
+            }
+            else{ //quechua
+                tvID.setText(s.getId()+"");
+                tvPeliculaTituloCard.setText("KUYU WALLTAY:");
+                tvNombre.setText("Sutiy: " + s.getNombre());
+                tvCompania.setText("Jatun Wasi: " + s.getCompania());
+            }
         }
     }
 
     //Constructor:
-    public AdaptadorPeliculasDatos(ArrayList<Pelicula> listaDatos){ this.listaDatos = listaDatos; }
+    public PeliculaAdapter(ArrayList<Pelicula> listaDatos){ this.listaDatos = listaDatos; }
 
     //Debemos enlazar este adapatador con el archivo de elementos de la lista en XML
     @NonNull
     @Override
     public ViewHolderDatos onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.peliculas_lista, parent, false); //ACA ESTA ELEMENTOS_LISTA parent, false
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_pelicula_card, parent, false); //ACA ESTA ELEMENTOS_LISTA parent, false
         return new ViewHolderDatos(view, mListener);
     }
 

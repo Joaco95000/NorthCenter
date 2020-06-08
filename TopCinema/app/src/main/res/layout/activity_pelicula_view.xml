@@ -4,46 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/darkGrey"
     android:orientation="vertical"
-    android:padding="16dp"
-    tools:context=".ViewUserActivity">
+    tools:context=".peliculas.ViewPeliculaActivity"
+    android:padding="10dp"
+    android:background="@color/darkGrey">
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tvListaPeliculasTitulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/comfortaa_light"
         android:textColor="@color/grey"
         android:gravity="center_horizontal"
-        android:text="@string/tvT"
-        android:textSize="45sp" />
+        android:text="@string/tvP"
+        android:textSize="35sp" />
     <Button
-        android:id="@+id/btnRegisterUser"
+        android:id="@+id/btnRegistrarPelicula"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:background="#B11623"
+        android:background="@color/estadoRojo"
         android:fontFamily="@font/comfortaa_light"
-        android:onClick="cargarRegister"
-        android:text="@string/btnRegistrarUsuario"
-        android:textSize="24sp"
+        android:onClick="cargarRegisterPeliculas"
+        android:text="@string/txtBtnRegistrarPelicula"
+        android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="@color/grey"/>
+        android:textColor="@color/grey" />
+
     <EditText
-        android:id="@+id/etFiltrarUsuario"
+        android:id="@+id/etFiltrarPelicula"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:ems="10"
         android:fontFamily="@font/comfortaa_light"
-        android:hint="@string/txtEtFiltrarUsuario"
+        android:hint="@string/txtEtFiltrarPelicula"
         android:inputType="textPersonName"
         android:textColor="@color/grey"
         android:textColorHint="@color/grey" />
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/ListUsers"
+        android:id="@+id/rvPeliculas"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </androidx.recyclerview.widget.RecyclerView>
+        android:layout_height="match_parent" />
 </LinearLayout>

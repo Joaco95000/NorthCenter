@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.topcinema.AyudanteBaseDeDatos;
 import com.example.topcinema.modelos.Usuario;
 
 import java.util.ArrayList;

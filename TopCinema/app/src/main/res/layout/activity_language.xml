@@ -6,8 +6,9 @@
     android:layout_height="match_parent"
     android:background="@color/darkGrey"
     android:gravity="top"
+    android:padding="10dp"
     android:orientation="vertical"
-    tools:context=".IdiomActivity">
+    tools:context=".LanguageActivity">
     <TextView
         android:id="@+id/txtCambiarIdioma"
         android:layout_width="match_parent"

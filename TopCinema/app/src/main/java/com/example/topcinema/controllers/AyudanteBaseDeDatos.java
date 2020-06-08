@@ -1,4 +1,4 @@
-package com.example.topcinema;
+package com.example.topcinema.controllers;
 
 import android.content.ContentValues;
 import android.content.Context;

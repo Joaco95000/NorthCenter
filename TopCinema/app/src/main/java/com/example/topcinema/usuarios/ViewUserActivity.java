@@ -1,12 +1,10 @@
-package com.example.topcinema;
+package com.example.topcinema.usuarios;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -14,9 +12,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.topcinema.controllers.AyudanteBaseDeDatos;
+import com.example.topcinema.R;
 import com.example.topcinema.controllers.UsuarioController;
 import com.example.topcinema.modelos.Usuario;
-import com.example.topcinema.usuarioAdapter.UsuarioAdapter;
+import com.example.topcinema.adapters.UsuarioAdapter;
 
 import java.util.ArrayList;
 
@@ -31,7 +31,7 @@ public class ViewUserActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         try{
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_view_user);
+            setContentView(R.layout.activity_user_view);
             recyclerView =findViewById(R.id.ListUsers);
             etFiltrarUsuario = findViewById(R.id.etFiltrarUsuario);
             cargarUsuarios();
@@ -80,7 +80,7 @@ public class ViewUserActivity extends AppCompatActivity {
     public void cargarRegister(View w)
     {
         try {
-            Intent intent = new Intent(this, RegisterActivity.class);
+            Intent intent = new Intent(this, RegisterUserActivity.class);
             startActivity(intent);
         }
         catch (Exception ex)

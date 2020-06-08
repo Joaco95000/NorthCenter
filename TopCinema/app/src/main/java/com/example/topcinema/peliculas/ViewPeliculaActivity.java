@@ -1,4 +1,4 @@
-package com.example.topcinema;
+package com.example.topcinema.peliculas;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,14 +15,17 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 import java.util.ArrayList;
+
+import com.example.topcinema.R;
 import com.example.topcinema.controllers.PeliculaController;
 import com.example.topcinema.modelos.Pelicula;
+import com.example.topcinema.adapters.PeliculaAdapter;
 
 public class ViewPeliculaActivity extends AppCompatActivity {
     ArrayList<Pelicula> listaDatos = new ArrayList<Pelicula>();
 
     RecyclerView rvPeliculas;
-    AdaptadorPeliculasDatos adaptadorDatos;
+    PeliculaAdapter adaptadorDatos;
 
     EditText etFiltrarPelicula;
     ImageView imgPe;
@@ -32,7 +35,7 @@ public class ViewPeliculaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_pelicula);
+        setContentView(R.layout.activity_pelicula_view);
         rvPeliculas = findViewById(R.id.rvPeliculas);
         etFiltrarPelicula= findViewById(R.id.etFiltrarPelicula);
         imgPe = findViewById(R.id.fotoP);
@@ -57,10 +60,10 @@ public class ViewPeliculaActivity extends AppCompatActivity {
         rvPeliculas.setLayoutManager(new GridLayoutManager(this, 1));
         peliculaController = new PeliculaController(ViewPeliculaActivity.this);
         listaDatos = peliculaController.listaDePeliculas();
-        adaptadorDatos = new AdaptadorPeliculasDatos(listaDatos);
+        adaptadorDatos = new PeliculaAdapter(listaDatos);
         rvPeliculas.setAdapter(adaptadorDatos);
 
-        adaptadorDatos.setOnItemClickListener(new AdaptadorPeliculasDatos.OnItemClickListener() {
+        adaptadorDatos.setOnItemClickListener(new PeliculaAdapter.OnItemClickListener() {
             @Override
             public void onUpdateClick(int id) {
                 Intent intent = new Intent(getApplicationContext(), UpdatePeliculaActivity.class);
@@ -79,10 +82,10 @@ public class ViewPeliculaActivity extends AppCompatActivity {
         rvPeliculas.setLayoutManager(new GridLayoutManager(this, 1));
         peliculaController = new PeliculaController(ViewPeliculaActivity.this);
         listaDatos = peliculaController.listaDePeliculas(buscar);
-        adaptadorDatos = new AdaptadorPeliculasDatos(listaDatos);
+        adaptadorDatos = new PeliculaAdapter(listaDatos);
         rvPeliculas.setAdapter(adaptadorDatos);
 
-        adaptadorDatos.setOnItemClickListener(new AdaptadorPeliculasDatos.OnItemClickListener() {
+        adaptadorDatos.setOnItemClickListener(new PeliculaAdapter.OnItemClickListener() {
             @Override
             public void onUpdateClick(int id) {
                 Intent intent = new Intent(getApplicationContext(), UpdatePeliculaActivity.class);

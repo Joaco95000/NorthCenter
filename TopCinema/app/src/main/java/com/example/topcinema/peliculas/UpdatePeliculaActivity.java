@@ -1,4 +1,4 @@
-package com.example.topcinema;
+package com.example.topcinema.peliculas;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,16 +13,21 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.topcinema.R;
 import com.example.topcinema.controllers.PeliculaController;
 import com.example.topcinema.modelos.Pelicula;
 
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class UpdatePeliculaActivity extends AppCompatActivity {
     EditText etUpdateNombre, etUpdateGenero, etUpdateCompania, etUpdateDuracion, etUpdatePuntuacion;
     Button btnActualizar, btnUpdateImage;
     Pelicula pelicula;
     PeliculaController peliculaController;
+    Pattern patPuntuacion = Pattern.compile("([1-5])");
     ImageView fotoPUpdate;
     Bitmap imgPUpdate;
     int id;
@@ -32,7 +37,7 @@ public class UpdatePeliculaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         try{
-            setContentView(R.layout.activity_update_pelicula);
+            setContentView(R.layout.activity_pelicula_update);
             pelicula = new Pelicula();
             btnActualizar = findViewById(R.id.btnActualizar);
             btnUpdateImage = findViewById(R.id.btnUpdateImage);
@@ -74,6 +79,8 @@ public class UpdatePeliculaActivity extends AppCompatActivity {
                         String compania = etUpdateCompania.getText().toString();
                         String duracion = etUpdateDuracion.getText().toString();
                         String puntuacion = etUpdatePuntuacion.getText().toString();
+                        Matcher matcherP = patPuntuacion.matcher(puntuacion);
+
                         if ("".equals(nombre)) {
                             etUpdateNombre.setError("Debes ingresar el nombre de la Película");
                             etUpdateNombre.requestFocus();
@@ -100,19 +107,31 @@ public class UpdatePeliculaActivity extends AppCompatActivity {
                             etUpdatePuntuacion.requestFocus();
                             return;
                         } else {
-                            int duracionP = Integer.parseInt(duracion);
-                            int puntuacionP = Integer.parseInt(puntuacion);
-                            if(fotoPUpdate.getDrawable()!=null && imageToStore!=null) {
-                                pelicula = new Pelicula(id, nombre, genero, compania, duracionP, puntuacionP, imageToStore);
-                            }
-                            else {
-                                pelicula = new Pelicula(id, nombre, genero, compania, duracionP, puntuacionP);
-                            }
-                            long actualizado = peliculaController.actualizarPelicula(pelicula);
-                            if (actualizado == -1) Toast.makeText(UpdatePeliculaActivity.this, "Error al actualizar la pelicula", Toast.LENGTH_LONG).show();
-                            else {
-                                Toast.makeText(UpdatePeliculaActivity.this, "Se actualizó correctamente", Toast.LENGTH_LONG).show();
-                                finish();
+                            if (puntuacion.length() > 1) {
+                                etUpdatePuntuacion.setError("Dato no válido");
+                                etUpdatePuntuacion.requestFocus();
+                                return;
+                            } else {
+                                if (matcherP.find() == false) {
+                                    etUpdatePuntuacion.setError("El dato debe estar entre 1-5");
+                                    etUpdatePuntuacion.requestFocus();
+                                    return;
+                                } else {
+                                    int duracionP = Integer.parseInt(duracion);
+                                    int puntuacionP = Integer.parseInt(puntuacion);
+                                    if(fotoPUpdate.getDrawable()!=null && imageToStore!=null) {
+                                        pelicula = new Pelicula(id, nombre, genero, compania, duracionP, puntuacionP, imageToStore);
+                                    }
+                                    else {
+                                        pelicula = new Pelicula(id, nombre, genero, compania, duracionP, puntuacionP);
+                                    }
+                                    long actualizado = peliculaController.actualizarPelicula(pelicula);
+                                    if (actualizado == -1) Toast.makeText(UpdatePeliculaActivity.this, "Error al actualizar la pelicula", Toast.LENGTH_LONG).show();
+                                    else {
+                                        Toast.makeText(UpdatePeliculaActivity.this, "Se actualizó correctamente", Toast.LENGTH_LONG).show();
+                                        finish();
+                                    }
+                                }
                             }
                         }
                     }
@@ -138,7 +157,6 @@ public class UpdatePeliculaActivity extends AppCompatActivity {
             try {
                 imageToStore= MediaStore.Images.Media.getBitmap(getContentResolver(),imageFilePath);
                 fotoPUpdate.setImageBitmap(imageToStore);
-
             }
             catch (IOException e) {
                 e.printStackTrace();

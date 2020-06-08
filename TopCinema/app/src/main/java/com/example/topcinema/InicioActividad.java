@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.topcinema.usuarios.RegisterUserActivity;
+
 public class InicioActividad extends AppCompatActivity {
     private long backPressedTime;
     private Toast backToast;
@@ -48,7 +50,7 @@ public class InicioActividad extends AppCompatActivity {
     public void cargarRegister(View w)
     {
         try {
-            Intent intent = new Intent(this, RegisterActivity.class);
+            Intent intent = new Intent(this, RegisterUserActivity.class);
             startActivity(intent);
         }
         catch (Exception ex) {
@@ -72,7 +74,7 @@ public class InicioActividad extends AppCompatActivity {
     public void cargarIdioma(View w)
     {
         try {
-            Intent intent = new Intent(this, IdiomActivity.class);
+            Intent intent = new Intent(this, LanguageActivity.class);
             startActivity(intent);
         }
         catch (Exception ex) {
