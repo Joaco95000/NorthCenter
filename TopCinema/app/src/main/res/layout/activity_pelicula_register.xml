@@ -97,6 +97,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="#B11623"
+                android:textSize="24sp"
+                android:textStyle="bold"
                 android:fontFamily="@font/comfortaa_light"
                 android:text="@string/btnAgregarFoto"
                 android:textColor="#CCCCCC" />

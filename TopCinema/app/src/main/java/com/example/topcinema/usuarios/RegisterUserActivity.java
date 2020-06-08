@@ -2,6 +2,8 @@ package com.example.topcinema.usuarios;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +13,7 @@ import android.widget.Toast;
 import com.example.topcinema.R;
 import com.example.topcinema.controllers.UsuarioController;
 import com.example.topcinema.modelos.Usuario;
+import com.example.topcinema.controllers.AyudanteBaseDeDatos;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -136,18 +139,22 @@ public class RegisterUserActivity extends AppCompatActivity {
                     if(password1.compareTo(password2) == 0)
                     {
                         int edadF = Integer.parseInt(edad);
+if(validarCopia())
+{
+    user = new Usuario(correo,nombre,apellido1,apellido2,usuario,password1,edadF);
+    long creado = usuarioController.nuevoUsuario(user);
+    if (creado==-1){
+        Toast.makeText(RegisterUserActivity.this, "Error al insertar el usuario",Toast.LENGTH_LONG).show();
 
-                        user = new Usuario(correo,nombre,apellido1,apellido2,usuario,password1,edadF);
-                        long creado = usuarioController.nuevoUsuario(user);
-                        if (creado==-1){
-                            Toast.makeText(RegisterUserActivity.this, "Error al insertar el usuario",Toast.LENGTH_LONG).show();
+    }else{
+        Toast.makeText(RegisterUserActivity.this,"Se insertó correctamente",Toast.LENGTH_LONG).show();
+        //Intent intent = new Intent(RegisterActivity.this,InicioActividad.class);
+        //startActivity(intent);
+        finish();
+    }
+}
 
-                        }else{
-                            Toast.makeText(RegisterUserActivity.this,"Se insertó correctamente",Toast.LENGTH_LONG).show();
-                            //Intent intent = new Intent(RegisterActivity.this,InicioActividad.class);
-                            //startActivity(intent);
-                            finish();
-                        }
+
                     }
                     else
                     {
@@ -163,5 +170,31 @@ public class RegisterUserActivity extends AppCompatActivity {
             }
 
         });
+    }
+    public boolean validarCopia()
+    {
+        boolean noExiste = true;
+        try{
+            String usuarioString = etUsuario.getText().toString();
+            AyudanteBaseDeDatos ayudanteBaseDeDatos = new AyudanteBaseDeDatos(RegisterUserActivity.this);
+            SQLiteDatabase bd = ayudanteBaseDeDatos.getReadableDatabase();
+            Cursor c = bd.rawQuery("SELECT usuario, password FROM usuarios", null);
+            if(c.getCount() == 0) Toast.makeText(RegisterUserActivity.this, "Error !",Toast.LENGTH_LONG).show();
+            if(c.moveToFirst()){
+                do{
+                    String usuarioEncontrado = c.getString(0);
+                    if(usuarioString.equals(usuarioEncontrado)) {
+                        Toast.makeText(RegisterUserActivity.this, "Error, El Usuario ya existe.",Toast.LENGTH_LONG).show();
+                        noExiste = false;
+                        break;
+                    }
+                } while (c.moveToNext());
+            }
+        }
+        catch (Exception ex)
+        {
+            Toast.makeText(RegisterUserActivity.this, "Error: "+ex.getMessage(), Toast.LENGTH_LONG).show();
+        }
+        return noExiste;
     }
 }

@@ -1,6 +1,8 @@
 package com.example.topcinema.peliculas;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,8 +17,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.topcinema.R;
+import com.example.topcinema.controllers.AyudanteBaseDeDatos;
 import com.example.topcinema.controllers.PeliculaController;
 import com.example.topcinema.modelos.Pelicula;
+import com.example.topcinema.usuarios.RegisterUserActivity;
 
 import java.io.IOException;
 import java.util.regex.Matcher;
@@ -84,6 +88,10 @@ public class RegisterPeliculaActivity extends AppCompatActivity {
                     String puntuacion = etPuntuacion.getText().toString();
                     Matcher matcherP = patPuntuacion.matcher(puntuacion);
 
+                    if (imageToStore == null) {
+                        Toast.makeText(RegisterPeliculaActivity.this, "Debes asignar un poster para la pelicula", Toast.LENGTH_LONG).show();
+                        return;
+                    }
 
                     if ("".equals(nombre)) {
                         etNombre.setError("debes ingresar el nombre de la pelicula");
@@ -121,17 +129,20 @@ public class RegisterPeliculaActivity extends AppCompatActivity {
                                 return;
                             }
                             else{
-                                int duracionP = Integer.parseInt(duracion);
-                                int puntuacionP = Integer.parseInt(puntuacion);
-                                pelicula = new Pelicula(nombre, genero, compania, duracionP, puntuacionP, imageToStore);
-                                long creado = peliculaController.nuevaPelicula(pelicula);
-                                if (creado == -1) {
-                                    Toast.makeText(RegisterPeliculaActivity.this, "Error al insertar pelicula", Toast.LENGTH_LONG).show();
+                                if(validarCopia()) {
+                                    int duracionP = Integer.parseInt(duracion);
+                                    int puntuacionP = Integer.parseInt(puntuacion);
+                                    pelicula = new Pelicula(nombre, genero, compania, duracionP, puntuacionP, imageToStore);
+                                    long creado = peliculaController.nuevaPelicula(pelicula);
+                                    if (creado == -1) {
+                                        Toast.makeText(RegisterPeliculaActivity.this, "Error al insertar pelicula", Toast.LENGTH_LONG).show();
 
-                                } else {
-                                    Toast.makeText(RegisterPeliculaActivity.this, "Se insertó correctamente", Toast.LENGTH_LONG).show();
-                                    finish();
+                                    } else {
+                                        Toast.makeText(RegisterPeliculaActivity.this, "Se insertó correctamente", Toast.LENGTH_LONG).show();
+                                        finish();
+                                    }
                                 }
+
                             }
                         }
 
@@ -162,6 +173,32 @@ public class RegisterPeliculaActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
+    }
+    public boolean validarCopia()
+    {
+        boolean noExiste = true;
+        try{
+            String peliculaString = etNombre.getText().toString();
+            AyudanteBaseDeDatos ayudanteBaseDeDatos = new AyudanteBaseDeDatos(RegisterPeliculaActivity.this);
+            SQLiteDatabase bd = ayudanteBaseDeDatos.getReadableDatabase();
+            Cursor c = bd.rawQuery("SELECT nombre FROM pelicula", null);
+            if(c.getCount() == 0) Toast.makeText(RegisterPeliculaActivity.this, "Error !",Toast.LENGTH_LONG).show();
+            if(c.moveToFirst()){
+                do{
+                    String peliculaEncontrado = c.getString(0);
+                    if(peliculaString.equals(peliculaEncontrado)) {
+                        Toast.makeText(RegisterPeliculaActivity.this, "Error, ya hay una pelicula con ese nombre.",Toast.LENGTH_LONG).show();
+                        noExiste = false;
+                        break;
+                    }
+                } while (c.moveToNext());
+            }
+        }
+        catch (Exception ex)
+        {
+            Toast.makeText(RegisterPeliculaActivity.this, "Error: "+ex.getMessage(), Toast.LENGTH_LONG).show();
+        }
+        return noExiste;
     }
 }
 
