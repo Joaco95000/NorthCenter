@@ -11,10 +11,11 @@ public class Pelicula {
 
     public Pelicula(){}
 
-    public Pelicula(int id, String nombre, String compania, Bitmap foto)
+    public Pelicula(int id, String nombre, String compania, int puntuacion, Bitmap foto)
     {
         this.id = id;
         this.nombre = nombre;
+        this.puntuacion = puntuacion;
         this.compania = compania;
         this.foto = foto;
     }

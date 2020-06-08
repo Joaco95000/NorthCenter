@@ -18,27 +18,27 @@
     <string name="btn1">Crear Usuario</string>
     <string name="btn2">Ingresar a BDD</string>
     <string name="title_activity_main_crear">MainCrear</string>
-    <string name="titulo2">Crear Usuario</string>
+    <string name="titulo2">CREAR USUARIO</string>
     <string name="nombre">Nombre</string>
     <string name="apellido1">Apellido</string>
     <string name="apellido2">Segundo Apellido</string>
     <string name="edad">Edad</string>
     <string name="usuario">Nombre de Usuario</string>
-    <string name="Password1">Password</string>
-    <string name="Password2">Verificar Password</string>
+    <string name="Password1">Contraseña</string>
+    <string name="Password2">Verificar Contraseña</string>
     <string name="botonCrear">Registrarse</string>
-    <string name="titulo3">Ingresar al Sistema</string>
+    <string name="titulo3">INGRESAR AL SISTEMA</string>
     <string name="botonIngresar">Ingresar</string>
     <string name="string1">Ingrese su Nombre de Usuario</string>
     <string name="string2">Ingrese su Contraseña</string>
     <string name="correo">Correo</string>
     <!-- Login -->
-    <string name="ingresarTitulo">INICIAR SESION</string>
+    <string name="ingresarTitulo">INICIAR SESIÓN</string>
     <string name="ingresarIngresar">Ingresar</string>
     <string name="ingresarUsuario">Ingresa tu nombre de usuario</string>
     <string name="ingresarContrasenia">Ingresa tu contraseña</string>
     <!-- Register Peliculas -->
-    <string name="tituloIngresarPelicula">AÑADIR PELICULA</string>
+    <string name="tituloIngresarPelicula">AÑADIR PELÍCULA</string>
     <string name="nombrePelicula">Nombre</string>
     <string name="generoPelicula">Genero</string>
     <string name="companiaPelicula">Compañía</string>
@@ -51,15 +51,15 @@
     <string name="tvT">LISTA DE USUARIOS</string>
     <string name="btnRegistrarUsuario">REGISTRAR USUARIO</string>
     <string name="tvN">Nombre:</string>
-    <string name="TVc">Email:</string>
+    <string name="TVc">Correo:</string>
     <string name="tvU">Nombre de Usuario:</string>
     <!-- Panel -->
     <string name="btnIrRegistrar">Usuarios</string>
-    <string name="btnIrPeliculas">Peliculas</string>
+    <string name="btnIrPeliculas">Películas</string>
     <string name="btnCerrarSesion">Cerrar Sesión</string>
-    <string name="etTopCinema">Top Cinema</string>
+    <string name="etTopCinema">TOP CINEMA</string>
     <!-- Idiom -->
-    <string name="txtCambiarIdioma">Cambiar Idioma</string>
+    <string name="txtCambiarIdioma">CAMBIAR IDIOMA</string>
     <string name="btnEspanol">Español</string>
     <string name="btnIngles">Inglés</string>
     <string name="btnVolverIdiom">Volver</string>
@@ -68,7 +68,7 @@
     <string name="txtEtFiltrarPelicula">Filtrar Película por nombre</string>
     <string name="btnAgregarFoto">Añadir Carátula</string>
     <!-- Update Pelicula -->
-    <string name="tituloUpdatePelicula">Actualizar Película</string>
-    <string name="btnActualizarFoto">Actualizar Carátula</string>
-    <string name="botonActualizar">ACTUALIZAR</string>
+    <string name="tituloUpdatePelicula">ACTUALIZAR PELÍCULA</string>
+    <string name="btnActualizarFoto">ACTUALIZAR CARÁTULA</string>
+    <string name="botonActualizar">ACTUALIZAR PELÍCULA</string>
 </resources>

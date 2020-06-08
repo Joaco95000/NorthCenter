@@ -8,15 +8,17 @@
     android:orientation="vertical"
     android:padding="10dp"
     tools:context=".usuarios.ViewUserActivity">
+
     <TextView
         android:id="@+id/tvListaUsuarioTitulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/comfortaa_light"
-        android:textColor="@color/grey"
         android:gravity="center_horizontal"
         android:text="@string/tvT"
-        android:textSize="35sp"  />
+        android:textColor="@color/grey"
+        android:textSize="30sp"
+        android:textStyle="bold" />
     <Button
         android:id="@+id/btnRegisterUser"
         android:layout_width="match_parent"
@@ -27,7 +29,7 @@
         android:fontFamily="@font/comfortaa_light"
         android:onClick="cargarRegister"
         android:text="@string/btnRegistrarUsuario"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@color/grey"/>
     <EditText

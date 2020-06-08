@@ -16,6 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
+
             <TextView
                 android:id="@+id/txtTituloUpdate"
                 android:layout_width="match_parent"
@@ -23,8 +24,9 @@
                 android:fontFamily="@font/comfortaa_light"
                 android:gravity="center"
                 android:text="@string/tituloUpdatePelicula"
-                android:textSize="4mm"
-                android:textColor="@color/grey" />
+                android:textColor="@color/grey"
+                android:textSize="30sp"
+                android:textStyle="bold" />
             <EditText
                 android:id="@+id/etUpdateNombre"
                 android:layout_width="match_parent"
@@ -82,26 +84,21 @@
                 android:textColor="@color/grey"
                 android:textColorHint="@color/grey" />
 
-            <LinearLayout
+            <ImageView
+                android:id="@+id/fotoPUpdate"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
 
-                <ImageView
-                    android:id="@+id/fotoPUpdate"
-                    android:layout_width="150dp"
-                    android:layout_height="250dp"
-                    android:layout_weight="1" />
-
-                <Button
-                    android:id="@+id/btnUpdateImage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/btnActualizarFoto"
-                    android:background="#B11623"
-                    android:textColor="#CCCCCC"/>
-            </LinearLayout>
+            <Button
+                android:id="@+id/btnUpdateImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#B11623"
+                android:fontFamily="@font/comfortaa_light"
+                android:text="@string/btnActualizarFoto"
+                android:textColor="#CCCCCC" />
 
             <Button
                 android:id="@+id/btnActualizar"

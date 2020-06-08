@@ -30,10 +30,15 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
     //Vamos a crear la clase
     public static class ViewHolderDatos extends RecyclerView.ViewHolder { //MAYBE: static
         public TextView tvNombre, tvCompania, tvID, tvPeliculaTituloCard;
-        public ImageView ivDelete, ivUpdate, ivPeliculaPoster;
+        public ImageView ivDelete, ivUpdate, ivPeliculaPoster, star1, star2, star3, star4, star5;
         public ViewHolderDatos(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
             ivPeliculaPoster = itemView.findViewById(R.id.ivPeliculaPoster);
+            star1 = itemView.findViewById(R.id.star1);
+            star2 = itemView.findViewById(R.id.star2);
+            star3 = itemView.findViewById(R.id.star3);
+            star4 = itemView.findViewById(R.id.star4);
+            star5 = itemView.findViewById(R.id.star5);
             tvPeliculaTituloCard = itemView.findViewById(R.id.tvPeliculaTituloCard);
             tvID = itemView.findViewById(R.id.tvID);
             tvNombre = itemView.findViewById(R.id.tvNombre);
@@ -79,6 +84,18 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
                 tvPeliculaTituloCard.setText("KUYU WALLTAY:");
                 tvNombre.setText("Sutiy: " + s.getNombre());
                 tvCompania.setText("Jatun Wasi: " + s.getCompania());
+            }
+            if(s.getPuntuacion() < 5){
+                star5.setImageResource(R.drawable.emptystar);
+            }
+            if(s.getPuntuacion() < 4){
+                star4.setImageResource(R.drawable.emptystar);
+            }
+            if(s.getPuntuacion() < 3){
+                star3.setImageResource(R.drawable.emptystar);
+            }
+            if(s.getPuntuacion() < 2){
+                star2.setImageResource(R.drawable.emptystar);
             }
         }
     }

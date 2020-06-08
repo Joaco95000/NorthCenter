@@ -9,6 +9,7 @@
     android:orientation="vertical"
     android:background="@color/darkGrey"
     tools:context=".PanelActivity">
+
     <TextView
         android:id="@+id/etTitulo"
         android:layout_width="match_parent"
@@ -17,7 +18,8 @@
         android:gravity="center"
         android:text="@string/etTopCinema"
         android:textColor="@color/grey"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:textStyle="bold" />
     <Button
         android:id="@+id/btnInicioSistema"
         android:layout_width="match_parent"
@@ -27,7 +29,7 @@
         android:fontFamily="@font/comfortaa_light"
         android:onClick="cargarUserView"
         android:text="@string/btnIrRegistrar"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@color/grey" />
     <Button
@@ -39,7 +41,7 @@
         android:fontFamily="@font/comfortaa_light"
         android:onClick="cargarMovieView"
         android:text="@string/btnIrPeliculas"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@color/grey"/>
     <Button
@@ -51,7 +53,7 @@
         android:fontFamily="@font/comfortaa_light"
         android:onClick="cerrarSesion"
         android:text="@string/btnCerrarSesion"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@color/grey"/>
 </LinearLayout>

@@ -77,9 +77,10 @@ public class PeliculaController {
                 int id = Integer.parseInt(res.getString(res.getColumnIndex("id")));
                 String nombre = res.getString(res.getColumnIndex("nombre"));
                 String compania = res.getString(res.getColumnIndex("compania"));
+                int puntuacion = Integer.parseInt(res.getString(res.getColumnIndex("puntuacion")));
                 imgByte = res.getBlob(res.getColumnIndex("foto"));
                 Bitmap foto = BitmapFactory.decodeByteArray(imgByte,0,imgByte.length);
-                Pelicula p = new Pelicula(id, nombre, compania, foto);
+                Pelicula p = new Pelicula(id, nombre, compania, puntuacion, foto);
                 array_list.add(p);
                 res.moveToNext();
             }
@@ -101,9 +102,10 @@ public class PeliculaController {
             int id = Integer.parseInt(res.getString(res.getColumnIndex("id")));
             String nombre = res.getString(res.getColumnIndex("nombre"));
             String compania = res.getString(res.getColumnIndex("compania"));
+            int puntuacion = Integer.parseInt(res.getString(res.getColumnIndex("puntuacion")));
             imgByte = res.getBlob(res.getColumnIndex("foto"));
             Bitmap foto = BitmapFactory.decodeByteArray(imgByte,0,imgByte.length);
-            Pelicula p = new Pelicula(id, nombre, compania, foto);
+            Pelicula p = new Pelicula(id, nombre, compania, puntuacion, foto);
             array_list.add(p);
             res.moveToNext();
         }

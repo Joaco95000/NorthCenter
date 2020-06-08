@@ -12,11 +12,11 @@
     <string name="inmersi_n_total_pantallas_gigantes_y_c_modas_butacas_en_grada_para_que_disfrutes_del_nuevo_cine">Total immersion: giant screens and comfortable seats in the stands for you to enjoy the new cinema.</string>
     <string name="digital_experience_con_los_nuevos_proyectores_digitales_2d_y_3d">DIGITAL EXPERIENCE with our new 2D and 3D digital projectors.</string>
     <string name="_4dx_movimientos_y_vibraciones_esto_se_va_a_mover">4DX, movements and vibrations: This is going to move!</string>
-    <string name="tvScreenX">ScreenX, the newest!</string>
+    <string name="tvScreenX">ScreenX, the newest in cinema technology!</string>
     <string name="btn1">Create Account</string>
     <string name="btn2">Get into the Database</string>
     <string name="title_activity_main_crear">MainCreate</string>
-    <string name="titulo2">Create User</string>
+    <string name="titulo2">CREATE USER</string>
     <string name="nombre">Name</string>
     <string name="apellido1">First Surname</string>
     <string name="apellido2">Second Surname</string>
@@ -25,7 +25,7 @@
     <string name="Password1">Password</string>
     <string name="Password2">Verify Password</string>
     <string name="botonCrear">Register</string>
-    <string name="titulo3">Login</string>
+    <string name="titulo3">LOGIN</string>
     <string name="botonIngresar">Enter</string>
     <string name="string1">Enter username</string>
     <string name="string2">Enter password</string>
@@ -37,8 +37,8 @@
     <string name="btnIrRegistrar">Users</string>
     <string name="btnIrPeliculas">Movies</string>
     <string name="btnCerrarSesion">Log out</string>
-    <string name="etTopCinema">Top Cinema</string>
-    <string name="txtCambiarIdioma">Change Language</string>
+    <string name="etTopCinema">TOP CINEMA</string>
+    <string name="txtCambiarIdioma">CHANGE LANGUAGE</string>
     <string name="btnEspanol">Spanish</string>
     <string name="btnIngles">English</string>
     <string name="btnVolverIdiom">Back</string>
@@ -51,7 +51,7 @@
     <string name="registroPeliculas">Movies</string>
     <string name="txtBtnRegistrarPelicula">Register Movie</string>
     <string name="tvT">LIST OF USERS</string>
-    <string name="btnRegistrarUsuario">Register User</string>
+    <string name="btnRegistrarUsuario">REGISTRAR USUARIO</string>
     <string name="tvN">Name:</string>
     <string name="TVc">Email:</string>
     <string name="tvU">Username:</string>
@@ -59,7 +59,7 @@
     <string name="txtEtFiltrarUsuario">Filter Users by Username</string>
     <string name="txtEtFiltrarPelicula">Filter Movies by Name</string>
     <string name="btnAgregarFoto">Add Poster</string>
-    <string name="tituloUpdatePelicula">Update Movie</string>
-    <string name="btnActualizarFoto">Update Poster</string>
-    <string name="botonActualizar">Update Movie</string>
+    <string name="tituloUpdatePelicula">UPDATE MOVIE</string>
+    <string name="btnActualizarFoto">UPDATE POSTER</string>
+    <string name="botonActualizar">UPDATE MOVIE</string>
 </resources>
