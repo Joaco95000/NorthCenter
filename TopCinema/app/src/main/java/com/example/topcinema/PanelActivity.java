@@ -8,50 +8,44 @@ import android.view.View;
 import android.widget.Toast;
 
 public class PanelActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_panel);
     }
-    @Override
-    public void onBackPressed() {}
 
-    public void cargarUserView(View w)
-    {
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(this, "Debes cerrar la sesión ", Toast.LENGTH_SHORT).show();
+    }
+
+    public void cargarUserView(View w) {
         try {
             Intent intent = new Intent(this, ViewUserActivity.class);
             startActivity(intent);
         }
-        catch (Exception ex)
-        {
+        catch (Exception ex) {
             Toast.makeText(this,ex.getMessage(), Toast.LENGTH_SHORT).show();
         }
-
     }
 
-    public void cargarMovieView(View w)
-    {
+    public void cargarMovieView(View w) {
         try {
             Intent intent = new Intent(this, ViewPeliculaActivity.class);
             startActivity(intent);
         }
-        catch (Exception ex)
-        {
+        catch (Exception ex) {
             Toast.makeText(this,ex.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
     }
-    public void cerrarSesion(View w)
-    {
+    public void cerrarSesion(View w) {
         try {
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, InicioActividad.class);
             startActivity(intent);
         }
-        catch (Exception ex)
-        {
+        catch (Exception ex) {
             Toast.makeText(this,ex.getMessage(), Toast.LENGTH_SHORT).show();
         }
-
     }
 }

@@ -4,17 +4,22 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.widget.Toast;
 
 import com.example.topcinema.AyudanteBaseDeDatos;
 import com.example.topcinema.modelos.Pelicula;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 public class PeliculaController {
 
     private AyudanteBaseDeDatos ayudanteBaseDeDatos;
     private String NOMBRE_TABLA = "pelicula";
+    private ByteArrayOutputStream objectByteArrayOutputStream;
+    private byte[] imageInByte;
 
     public PeliculaController(Context context) {
         ayudanteBaseDeDatos = new AyudanteBaseDeDatos(context);
@@ -28,7 +33,13 @@ public class PeliculaController {
         valoresParaInsertar.put("compania",pelicula.getCompania());
         valoresParaInsertar.put("duracion",pelicula.getDuracion());
         valoresParaInsertar.put("puntuacion",pelicula.getPuntuacion());
-        valoresParaInsertar.put("foto",pelicula.getFoto());
+
+        Bitmap imageToStoreBitMap = pelicula.getFoto();
+        objectByteArrayOutputStream=new ByteArrayOutputStream();
+        imageToStoreBitMap.compress(Bitmap.CompressFormat.JPEG,100,objectByteArrayOutputStream);
+        imageInByte=objectByteArrayOutputStream.toByteArray();
+        valoresParaInsertar.put("foto", imageInByte);
+
         return baseDeDatos.insert(NOMBRE_TABLA,null,valoresParaInsertar);
     }
 
@@ -40,7 +51,15 @@ public class PeliculaController {
         valoresParaInsertar.put("compania",pelicula.getCompania());
         valoresParaInsertar.put("duracion",pelicula.getDuracion());
         valoresParaInsertar.put("puntuacion",pelicula.getPuntuacion());
-        valoresParaInsertar.put("foto",pelicula.getFoto());
+
+        if(pelicula.getFoto() != null){
+            Bitmap imageToStoreBitMap = pelicula.getFoto();
+            objectByteArrayOutputStream=new ByteArrayOutputStream();
+            imageToStoreBitMap.compress(Bitmap.CompressFormat.JPEG,100,objectByteArrayOutputStream);
+            imageInByte=objectByteArrayOutputStream.toByteArray();
+            valoresParaInsertar.put("foto", imageInByte);
+        }
+
         return baseDeDatos.update(NOMBRE_TABLA, valoresParaInsertar, "id="+pelicula.getId(), null);
     }
 
@@ -51,6 +70,7 @@ public class PeliculaController {
 
     public ArrayList listaDePeliculas() {
         try {
+            byte[] imgByte;
             SQLiteDatabase baseDeDatos = ayudanteBaseDeDatos.getWritableDatabase();
             ArrayList<Pelicula> array_list = new ArrayList<Pelicula>();
             Cursor res = baseDeDatos.rawQuery( "select * from " + NOMBRE_TABLA, null );
@@ -59,7 +79,9 @@ public class PeliculaController {
                 int id = Integer.parseInt(res.getString(res.getColumnIndex("id")));
                 String nombre = res.getString(res.getColumnIndex("nombre"));
                 String compania = res.getString(res.getColumnIndex("compania"));
-                Pelicula p = new Pelicula(id, nombre, compania);
+                imgByte = res.getBlob(res.getColumnIndex("foto"));
+                Bitmap foto = BitmapFactory.decodeByteArray(imgByte,0,imgByte.length);
+                Pelicula p = new Pelicula(id, nombre, compania, foto);
                 array_list.add(p);
                 res.moveToNext();
             }
@@ -72,6 +94,7 @@ public class PeliculaController {
     }
 
     public ArrayList listaDePeliculas(String buscar) {
+        byte[] imgByte;
         SQLiteDatabase baseDeDatos = ayudanteBaseDeDatos.getWritableDatabase();
         ArrayList<Pelicula> array_list = new ArrayList<Pelicula>();
         Cursor res = baseDeDatos.rawQuery( "SELECT * FROM " + NOMBRE_TABLA + " WHERE nombre LIKE '%" + buscar + "%';", null );
@@ -80,7 +103,9 @@ public class PeliculaController {
             int id = Integer.parseInt(res.getString(res.getColumnIndex("id")));
             String nombre = res.getString(res.getColumnIndex("nombre"));
             String compania = res.getString(res.getColumnIndex("compania"));
-            Pelicula p = new Pelicula(id, nombre, compania);
+            imgByte = res.getBlob(res.getColumnIndex("foto"));
+            Bitmap foto = BitmapFactory.decodeByteArray(imgByte,0,imgByte.length);
+            Pelicula p = new Pelicula(id, nombre, compania, foto);
             array_list.add(p);
             res.moveToNext();
         }
@@ -88,6 +113,7 @@ public class PeliculaController {
     }
 
     public Pelicula peliculaEspecifica(int MovieID) {
+        byte[] imgByte;
         SQLiteDatabase baseDeDatos = ayudanteBaseDeDatos.getWritableDatabase();
         Cursor res = baseDeDatos.rawQuery( "SELECT * FROM " + NOMBRE_TABLA + " WHERE id = " + MovieID + ";", null );
         Pelicula p = new Pelicula();
@@ -98,7 +124,8 @@ public class PeliculaController {
             String compania = res.getString(res.getColumnIndex("compania"));
             int duracion = Integer.parseInt(res.getString(res.getColumnIndex("duracion")));
             int puntuacion = Integer.parseInt(res.getString(res.getColumnIndex("puntuacion")));
-            String foto = res.getString(res.getColumnIndex("foto"));
+            imgByte = res.getBlob(res.getColumnIndex("foto"));
+            Bitmap foto = BitmapFactory.decodeByteArray(imgByte,0,imgByte.length);
             p = new Pelicula(nombre, genero, compania, duracion, puntuacion, foto);
             res.moveToNext();
         }

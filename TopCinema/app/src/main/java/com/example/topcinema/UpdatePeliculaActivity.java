@@ -3,8 +3,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,13 +16,15 @@ import android.widget.Toast;
 import com.example.topcinema.controllers.PeliculaController;
 import com.example.topcinema.modelos.Pelicula;
 
+import java.io.IOException;
+
 public class UpdatePeliculaActivity extends AppCompatActivity {
     EditText etUpdateNombre, etUpdateGenero, etUpdateCompania, etUpdateDuracion, etUpdatePuntuacion;
     Button btnActualizar, btnUpdateImage;
     Pelicula pelicula;
     PeliculaController peliculaController;
     ImageView fotoPUpdate;
-    String imgPUpdate;
+    Bitmap imgPUpdate;
     int id;
     private static final int PICK_IMAGE=100;
 
@@ -46,6 +50,7 @@ public class UpdatePeliculaActivity extends AppCompatActivity {
             etUpdateCompania.setText(pelicula.getCompania());
             etUpdateDuracion.setText(pelicula.getDuracion()+"", TextView.BufferType.EDITABLE);
             etUpdatePuntuacion.setText(pelicula.getPuntuacion()+"", TextView.BufferType.EDITABLE);
+            fotoPUpdate.setImageBitmap(pelicula.getFoto());
 
             btnUpdateImage.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -97,8 +102,12 @@ public class UpdatePeliculaActivity extends AppCompatActivity {
                         } else {
                             int duracionP = Integer.parseInt(duracion);
                             int puntuacionP = Integer.parseInt(puntuacion);
-                            Toast.makeText(getApplicationContext(), imgPUpdate, Toast.LENGTH_SHORT).show();
-                            pelicula = new Pelicula(id, nombre, genero, compania, duracionP, puntuacionP, imgPUpdate);
+                            if(fotoPUpdate.getDrawable()!=null && imageToStore!=null) {
+                                pelicula = new Pelicula(id, nombre, genero, compania, duracionP, puntuacionP, imageToStore);
+                            }
+                            else {
+                                pelicula = new Pelicula(id, nombre, genero, compania, duracionP, puntuacionP);
+                            }
                             long actualizado = peliculaController.actualizarPelicula(pelicula);
                             if (actualizado == -1) Toast.makeText(UpdatePeliculaActivity.this, "Error al actualizar la pelicula", Toast.LENGTH_LONG).show();
                             else {
@@ -118,15 +127,22 @@ public class UpdatePeliculaActivity extends AppCompatActivity {
             Toast.makeText(this, "Error: " + ex.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
+
+    private Uri imageFilePath;
+    private Bitmap imageToStore;
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode==RESULT_OK && requestCode==PICK_IMAGE) {
-            Uri uri = data.getData();
-            String dir = uri.toString();
-            fotoPUpdate.setImageURI(Uri.parse(dir));
-            imgPUpdate = dir;
-            Toast.makeText(getApplicationContext(), "Imagen subido", Toast.LENGTH_SHORT).show();
+        if(resultCode==RESULT_OK && requestCode==PICK_IMAGE && data!=null && data.getData()!=null){
+            imageFilePath = data.getData();
+            try {
+                imageToStore= MediaStore.Images.Media.getBitmap(getContentResolver(),imageFilePath);
+                fotoPUpdate.setImageBitmap(imageToStore);
+
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

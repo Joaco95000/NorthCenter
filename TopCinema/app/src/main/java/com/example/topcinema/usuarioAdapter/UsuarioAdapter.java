@@ -16,15 +16,32 @@ import java.util.ArrayList;
 public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.UsuariosViewHolder> {
     ArrayList<Usuario> listUsuarios;
 
+    public class UsuariosViewHolder extends RecyclerView.ViewHolder
+    {
+        TextView nombre, correo, usuario;
+
+        public UsuariosViewHolder(@NonNull View itemView){
+            super(itemView);
+            nombre = itemView.findViewById(R.id.tvNombreUsuario);
+            usuario = itemView.findViewById(R.id.tvUs); //tvUsername
+            correo = itemView.findViewById(R.id.tvCorreo);
+        }
+
+        public void asignarUsuarios (Usuario u){
+            usuario.setText("USUARIO: " + u.getUsuario());
+            nombre.setText("Nombre: " + u.getNombre());
+            correo.setText("Correo: " + u.getCorreo());
+        }
+    }
+
     public UsuarioAdapter(ArrayList<Usuario> listUsuarios){
         this.listUsuarios = listUsuarios;
     }
 
-
     @NonNull
     @Override
     public UsuarioAdapter.UsuariosViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.user_list,null,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.user_list, parent, false); //ACA ESTA ELEMENTOS_LISTA parent, false
         return new UsuariosViewHolder(view);
     }
 
@@ -36,23 +53,5 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.Usuarios
     @Override
     public int getItemCount() {
         return listUsuarios.size();
-    }
-
-    public class UsuariosViewHolder extends RecyclerView.ViewHolder
-    {
-        TextView nombre, correo, usuario;
-
-        public UsuariosViewHolder(@NonNull View itemView){
-            super(itemView);
-            nombre = itemView.findViewById(R.id.tvNombreUsuario);
-            usuario = itemView.findViewById(R.id.tvUsername);
-            correo = itemView.findViewById(R.id.tvCorreo);
-        }
-
-        public void asignarUsuarios (Usuario u){
-            nombre.setText("Nombre: " + u.getNombre());
-            correo.setText("Correo: " + u.getCorreo());
-            usuario.setText("Username: " + u.getUsuario());
-        }
     }
 }

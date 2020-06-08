@@ -1,22 +1,25 @@
 package com.example.topcinema.modelos;
 
+import android.graphics.Bitmap;
+
 public class Pelicula {
 
     private String nombre, genero, compania; //TODO: ver si necesitamos director, recaudacion, presupuesto, fecha de estreno, premios :v
     private int id, puntuacion, duracion; //TODO: esto es un double?
-    private String foto;
+    private Bitmap foto;
 
 
     public Pelicula(){}
 
-    public Pelicula(int id, String nombre, String compania)
+    public Pelicula(int id, String nombre, String compania, Bitmap foto)
     {
         this.id = id;
         this.nombre = nombre;
         this.compania = compania;
+        this.foto = foto;
     }
 
-    public Pelicula(String nombre, String genero, String compania, int duracion, int puntuacion,String foto)
+    public Pelicula(String nombre, String genero, String compania, int duracion, int puntuacion,Bitmap foto)
     {
         this.nombre = nombre;
         this.genero = genero;
@@ -26,7 +29,17 @@ public class Pelicula {
         this.foto = foto;
     }
 
-    public Pelicula(int id, String nombre, String genero, String compania, int duracion, int puntuacion,String foto)
+    public Pelicula(int id, String nombre, String genero, String compania, int duracion, int puntuacion)
+    {
+        this.id = id;
+        this.nombre = nombre;
+        this.genero = genero;
+        this.compania = compania;
+        this.duracion = duracion;
+        this.puntuacion = puntuacion;
+    }
+
+    public Pelicula(int id, String nombre, String genero, String compania, int duracion, int puntuacion,Bitmap foto)
     {
         this.id = id;
         this.nombre = nombre;
@@ -78,11 +91,11 @@ public class Pelicula {
     }
 
 
-    public String getFoto() {
+    public Bitmap getFoto() {
         return foto;
     }
 
-    public void setFoto(String foto) {
+    public void setFoto(Bitmap foto) {
         this.foto = foto;
     }
 }

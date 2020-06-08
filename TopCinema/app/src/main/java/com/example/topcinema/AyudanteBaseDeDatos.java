@@ -20,7 +20,7 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(String.format("create table if not exists %s(id integer primary key autoincrement,correo text, nombre text,apellido1 text,apellido2 text, edad integer,usuario text,password text);",NOMBRE_TABLA_USUARIOS));
-        sqLiteDatabase.execSQL(String.format("create table if not exists %s(id integer primary key autoincrement, nombre text, genero text, compania text, duracion integer, puntuacion integer,foto text);",NOMBRE_TABLA_PELICULA));
+        sqLiteDatabase.execSQL(String.format("create table if not exists %s(id integer primary key autoincrement, nombre text, genero text, compania text, duracion integer, puntuacion integer,foto blob);",NOMBRE_TABLA_PELICULA));
     }
 
     @Override
@@ -28,7 +28,7 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper {
 
     }
 
-    public boolean insertImage(String x){
+    /*public boolean insertImage(String x){
         SQLiteDatabase db=this.getWritableDatabase();
         try {
             ContentValues contentValues=new ContentValues();
@@ -41,5 +41,5 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper {
             e.printStackTrace();
             return false;
         }
-    }
+    }*/
 }

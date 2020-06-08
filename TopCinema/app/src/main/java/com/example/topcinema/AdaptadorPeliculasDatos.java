@@ -27,9 +27,10 @@ public class AdaptadorPeliculasDatos extends RecyclerView.Adapter<AdaptadorPelic
     //Vamos a crear la clase
     public static class ViewHolderDatos extends RecyclerView.ViewHolder { //MAYBE: static
         public TextView tvNombre, tvCompania, tvID;
-        public ImageView ivDelete, ivUpdate;
+        public ImageView ivDelete, ivUpdate, ivPeliculaPoster;
         public ViewHolderDatos(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
+            ivPeliculaPoster = itemView.findViewById(R.id.ivPeliculaPoster);
             tvID = itemView.findViewById(R.id.tvID);
             tvNombre = itemView.findViewById(R.id.tvNombre);
             tvCompania = itemView.findViewById(R.id.tvCompania);
@@ -56,6 +57,7 @@ public class AdaptadorPeliculasDatos extends RecyclerView.Adapter<AdaptadorPelic
         }
         //vamos a cargar la cadena de caracteres en el TextView
         public void asignarDatos(Pelicula s) {
+            ivPeliculaPoster.setImageBitmap(s.getFoto());
             tvID.setText(s.getId()+"");
             tvNombre.setText("Nombre: " + s.getNombre());
             tvCompania.setText("Compañía: " + s.getCompania());
