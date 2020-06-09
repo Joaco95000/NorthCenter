@@ -29,7 +29,7 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
 
     //Vamos a crear la clase
     public static class ViewHolderDatos extends RecyclerView.ViewHolder { //MAYBE: static
-        public TextView tvNombre, tvCompania, tvID, tvPeliculaTituloCard;
+        public TextView tvNombre, tvCompania, tvID;
         public ImageView ivDelete, ivUpdate, ivPeliculaPoster, star1, star2, star3, star4, star5;
         public ViewHolderDatos(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
@@ -39,7 +39,6 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
             star3 = itemView.findViewById(R.id.star3);
             star4 = itemView.findViewById(R.id.star4);
             star5 = itemView.findViewById(R.id.star5);
-            tvPeliculaTituloCard = itemView.findViewById(R.id.tvPeliculaTituloCard);
             tvID = itemView.findViewById(R.id.tvID);
             tvNombre = itemView.findViewById(R.id.tvNombre);
             tvCompania = itemView.findViewById(R.id.tvCompania);
@@ -69,19 +68,16 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
             ivPeliculaPoster.setImageBitmap(s.getFoto());
             if(Locale.getDefault().getLanguage().equals("en")){
                 tvID.setText(s.getId()+"");
-                tvPeliculaTituloCard.setText("MOVIE:");
                 tvNombre.setText("Name: " + s.getNombre());
                 tvCompania.setText("Company: " + s.getCompania());
             }
             else if(Locale.getDefault().getLanguage().equals("es")){
                 tvID.setText(s.getId()+"");
-                tvPeliculaTituloCard.setText("PELÍCULA:");
                 tvNombre.setText("Nombre: " + s.getNombre());
                 tvCompania.setText("Compañía: " + s.getCompania());
             }
             else{ //quechua
                 tvID.setText(s.getId()+"");
-                tvPeliculaTituloCard.setText("KUYU WALLTAY:");
                 tvNombre.setText("Sutiy: " + s.getNombre());
                 tvCompania.setText("Jatun Wasi: " + s.getCompania());
             }

@@ -51,7 +51,7 @@
     <string name="registroPeliculas">Movies</string>
     <string name="txtBtnRegistrarPelicula">Register Movie</string>
     <string name="tvT">LIST OF USERS</string>
-    <string name="btnRegistrarUsuario">REGISTRAR USUARIO</string>
+    <string name="btnRegistrarUsuario">REGISTER USER</string>
     <string name="tvN">Name:</string>
     <string name="TVc">Email:</string>
     <string name="tvU">Username:</string>

@@ -19,6 +19,7 @@ import com.example.topcinema.controllers.PeliculaController;
 import com.example.topcinema.modelos.Pelicula;
 
 import java.io.IOException;
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -82,38 +83,72 @@ public class UpdatePeliculaActivity extends AppCompatActivity {
                         Matcher matcherP = patPuntuacion.matcher(puntuacion);
 
                         if ("".equals(nombre)) {
-                            etUpdateNombre.setError("Debes ingresar el nombre de la Película");
+                            if(Locale.getDefault().getLanguage().equals("en")){
+                                etUpdateNombre.setError("You need to give the movie a name");
+                            }
+                            else if(Locale.getDefault().getLanguage().equals("es")){
+                                etUpdateNombre.setError("Debes ingresar el Nombre de la Película");
+                            }
                             etUpdateNombre.requestFocus();
                             return;
                         }
                         if ("".equals(genero)) {
-                            etUpdateGenero.setError("Debes ingresar el Genero de La Película");
+                            if(Locale.getDefault().getLanguage().equals("en")){
+                                etUpdateGenero.setError("You need to give the movie a genre");
+                            }
+                            else if(Locale.getDefault().getLanguage().equals("es")){
+                                etUpdateGenero.setError("Debes ingresar el Genero de la Película");
+                            }
                             etUpdateGenero.requestFocus();
                             return;
                         }
                         if ("".equals(compania)) {
-                            etUpdateCompania.setError("Debes ingresar la Compañía de la Película");
+                            if(Locale.getDefault().getLanguage().equals("en")){
+                                etUpdateCompania.setError("You need to give the movie a Production Company");
+                            }
+                            else if(Locale.getDefault().getLanguage().equals("es")){
+                                etUpdateCompania.setError("Debes ingresar la Compañía de la Película");
+                            }
                             etUpdateCompania.requestFocus();
                             return;
                         }
                         if ("".equals(duracion)) {
-                            etUpdateDuracion.setError("Debes ingresar la Duración de La Película");
+                            if(Locale.getDefault().getLanguage().equals("en")){
+                                etUpdateDuracion.setError("You need to give the movie a Duration/Runtime");
+                            }
+                            else if(Locale.getDefault().getLanguage().equals("es")){
+                                etUpdateDuracion.setError("Debes ingresar La Duración de la Película");
+                            }
                             etUpdateDuracion.requestFocus();
                             return;
                         }
-
                         if ("".equals(puntuacion)) {
-                            etUpdatePuntuacion.setError("Debes ingresar la Puntuación de la Película");
+                            if(Locale.getDefault().getLanguage().equals("en")){
+                                etUpdatePuntuacion.setError("You need to rate the movie (1-5 stars)");
+                            }
+                            else if(Locale.getDefault().getLanguage().equals("es")){
+                                etUpdatePuntuacion.setError("Debes ingresar la Puntuación de la Película");
+                            }
                             etUpdatePuntuacion.requestFocus();
                             return;
                         } else {
                             if (puntuacion.length() > 1) {
-                                etUpdatePuntuacion.setError("Dato no válido");
+                                if(Locale.getDefault().getLanguage().equals("en")){
+                                    etUpdatePuntuacion.setError("Invalid data");
+                                }
+                                else if(Locale.getDefault().getLanguage().equals("es")){
+                                    etUpdatePuntuacion.setError("Dato no válido");
+                                }
                                 etUpdatePuntuacion.requestFocus();
                                 return;
                             } else {
                                 if (matcherP.find() == false) {
-                                    etUpdatePuntuacion.setError("El dato debe estar entre 1-5");
+                                    if(Locale.getDefault().getLanguage().equals("en")){
+                                        etUpdatePuntuacion.setError("The rating needs to be between 1 and 5");
+                                    }
+                                    else if(Locale.getDefault().getLanguage().equals("es")){
+                                        etUpdatePuntuacion.setError("El dato debe estar entre 1-5");
+                                    }
                                     etUpdatePuntuacion.requestFocus();
                                     return;
                                 } else {
@@ -126,9 +161,21 @@ public class UpdatePeliculaActivity extends AppCompatActivity {
                                         pelicula = new Pelicula(id, nombre, genero, compania, duracionP, puntuacionP);
                                     }
                                     long actualizado = peliculaController.actualizarPelicula(pelicula);
-                                    if (actualizado == -1) Toast.makeText(UpdatePeliculaActivity.this, "Error al actualizar la pelicula", Toast.LENGTH_LONG).show();
+                                    if (actualizado == -1){
+                                        if(Locale.getDefault().getLanguage().equals("en")){
+                                            Toast.makeText(UpdatePeliculaActivity.this, "Error while updating this movie", Toast.LENGTH_LONG).show();
+                                        }
+                                        else if(Locale.getDefault().getLanguage().equals("es")){
+                                            Toast.makeText(UpdatePeliculaActivity.this, "Error al actualizar la película", Toast.LENGTH_LONG).show();
+                                        }
+                                    }
                                     else {
-                                        Toast.makeText(UpdatePeliculaActivity.this, "Se actualizó correctamente", Toast.LENGTH_LONG).show();
+                                        if(Locale.getDefault().getLanguage().equals("en")){
+                                            Toast.makeText(UpdatePeliculaActivity.this, "Movie updated successfully", Toast.LENGTH_LONG).show();
+                                        }
+                                        else if(Locale.getDefault().getLanguage().equals("es")){
+                                            Toast.makeText(UpdatePeliculaActivity.this, "Se actualizó correctamente", Toast.LENGTH_LONG).show();
+                                        }
                                         finish();
                                     }
                                 }

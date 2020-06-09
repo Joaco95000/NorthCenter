@@ -23,6 +23,7 @@ import com.example.topcinema.modelos.Pelicula;
 import com.example.topcinema.usuarios.RegisterUserActivity;
 
 import java.io.IOException;
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -89,42 +90,83 @@ public class RegisterPeliculaActivity extends AppCompatActivity {
                     Matcher matcherP = patPuntuacion.matcher(puntuacion);
 
                     if (imageToStore == null) {
-                        Toast.makeText(RegisterPeliculaActivity.this, "Debes asignar un poster para la pelicula", Toast.LENGTH_LONG).show();
+                        if(Locale.getDefault().getLanguage().equals("en")){
+                            Toast.makeText(RegisterPeliculaActivity.this, "You need to add a movie poster", Toast.LENGTH_LONG).show();
+                        }
+                        else if(Locale.getDefault().getLanguage().equals("es")){
+                            Toast.makeText(RegisterPeliculaActivity.this, "Debes asignar un Poster para la Película", Toast.LENGTH_LONG).show();
+                        }
                         return;
                     }
 
                     if ("".equals(nombre)) {
-                        etNombre.setError("debes ingresar el nombre de la pelicula");
+                        if(Locale.getDefault().getLanguage().equals("en")){
+                            etNombre.setError("You need to give the movie a name");
+                        }
+                        else if(Locale.getDefault().getLanguage().equals("es")){
+                            etNombre.setError("Debes ingresar el Nombre de la Película");
+                        }
                         etNombre.requestFocus();
                         return;
                     }
                     if ("".equals(genero)) {
-                        etGenero.setError("debes ingresar el Genero De La Pelicula");
+                        if(Locale.getDefault().getLanguage().equals("en")){
+                            etGenero.setError("You need to give the movie a genre");
+                        }
+                        else if(Locale.getDefault().getLanguage().equals("es")){
+                            etGenero.setError("Debes ingresar el Genero de la Película");
+                        }
                         etGenero.requestFocus();
                         return;
                     }
                     if ("".equals(compania)) {
-                        etCompania.setError("debes ingresar la Compania De la Pelicula");
+                        if(Locale.getDefault().getLanguage().equals("en")){
+                            etCompania.setError("You need to give the movie a Production Company");
+                        }
+                        else if(Locale.getDefault().getLanguage().equals("es")){
+                            etCompania.setError("Debes ingresar la Compañía de la Película");
+                        }
                         etCompania.requestFocus();
                         return;
                     }
                     if ("".equals(duracion)) {
-                        etDuracion.setError("debes ingresar La Duracion De La Pelicula");
+                        if(Locale.getDefault().getLanguage().equals("en")){
+                            etDuracion.setError("You need to give the movie a Duration/Runtime");
+                        }
+                        else if(Locale.getDefault().getLanguage().equals("es")){
+                            etDuracion.setError("Debes ingresar La Duración de la Película");
+                        }
                         etDuracion.requestFocus();
                         return;
                     }
                     if ("".equals(puntuacion)) {
-                        etPuntuacion.setError("debes ingresar la puntuacion de la pelicula");
+                        if(Locale.getDefault().getLanguage().equals("en")){
+                            etPuntuacion.setError("You need to rate the movie (1-5 stars)");
+                        }
+                        else if(Locale.getDefault().getLanguage().equals("es")){
+                            etPuntuacion.setError("Debes ingresar la Puntuación de la Película");
+                        }
                         etPuntuacion.requestFocus();
+                        return;
                     } else {
                         if(puntuacion.length()>1) {
-                            etPuntuacion.setError("Dato no válido");
+                            if(Locale.getDefault().getLanguage().equals("en")){
+                                etPuntuacion.setError("Invalid data");
+                            }
+                            else if(Locale.getDefault().getLanguage().equals("es")){
+                                etPuntuacion.setError("Dato no válido");
+                            }
                             etPuntuacion.requestFocus();
                             return;
                         }
                         else {
                             if(matcherP.find()==false) {
-                                etPuntuacion.setError("El dato debe estar entre 1-5");
+                                if(Locale.getDefault().getLanguage().equals("en")){
+                                    etPuntuacion.setError("The rating needs to be between 1 and 5");
+                                }
+                                else if(Locale.getDefault().getLanguage().equals("es")){
+                                    etPuntuacion.setError("El dato debe estar entre 1-5");
+                                }
                                 etPuntuacion.requestFocus();
                                 return;
                             }
@@ -135,10 +177,19 @@ public class RegisterPeliculaActivity extends AppCompatActivity {
                                     pelicula = new Pelicula(nombre, genero, compania, duracionP, puntuacionP, imageToStore);
                                     long creado = peliculaController.nuevaPelicula(pelicula);
                                     if (creado == -1) {
-                                        Toast.makeText(RegisterPeliculaActivity.this, "Error al insertar pelicula", Toast.LENGTH_LONG).show();
-
+                                        if(Locale.getDefault().getLanguage().equals("en")){
+                                            Toast.makeText(RegisterPeliculaActivity.this, "Error while inserting the movie", Toast.LENGTH_LONG).show();
+                                        }
+                                        else if(Locale.getDefault().getLanguage().equals("es")){
+                                            Toast.makeText(RegisterPeliculaActivity.this, "Error al insertar película", Toast.LENGTH_LONG).show();
+                                        }
                                     } else {
-                                        Toast.makeText(RegisterPeliculaActivity.this, "Se insertó correctamente", Toast.LENGTH_LONG).show();
+                                        if(Locale.getDefault().getLanguage().equals("en")){
+                                            Toast.makeText(RegisterPeliculaActivity.this, "Movie was inserted correctly", Toast.LENGTH_LONG).show();
+                                        }
+                                        else if(Locale.getDefault().getLanguage().equals("es")){
+                                            Toast.makeText(RegisterPeliculaActivity.this, "Se insertó correctamente", Toast.LENGTH_LONG).show();
+                                        }
                                         finish();
                                     }
                                 }

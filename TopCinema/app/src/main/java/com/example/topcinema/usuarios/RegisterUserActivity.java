@@ -14,7 +14,9 @@ import com.example.topcinema.R;
 import com.example.topcinema.controllers.UsuarioController;
 import com.example.topcinema.modelos.Usuario;
 import com.example.topcinema.controllers.AyudanteBaseDeDatos;
+import com.example.topcinema.peliculas.RegisterPeliculaActivity;
 
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -86,79 +88,143 @@ public class RegisterUserActivity extends AppCompatActivity {
                     */
                     ///*
                     if ("".equals(nombre)){
-                        etNombre.setError("debes ingresar el nombre");
+                        if(Locale.getDefault().getLanguage().equals("en")){
+                            etNombre.setError("You need to enter a name");
+                        }
+                        else if(Locale.getDefault().getLanguage().equals("es")){
+                            etNombre.setError("Debes ingresar el nombre");
+                        }
                         etNombre.requestFocus();
                         return;
                     }
                     if (matcherN.find()==false){
-                        etNombre.setError("¿Seguro que has introducido el nombre correctamente?");
+                        if(Locale.getDefault().getLanguage().equals("en")){
+                            etNombre.setError("Are you sure you're writing your name correctly?");
+                        }
+                        else if(Locale.getDefault().getLanguage().equals("es")){
+                            etNombre.setError("¿Seguro que has introducido el nombre correctamente?");
+                        }
                         etNombre.requestFocus();
                         return;
                     }
                     if ("".equals(apellido1)) {
-                        etApellido1.setError("debes ingresar el apellido");
+                        if(Locale.getDefault().getLanguage().equals("en")){
+                            etApellido1.setError("You need to add your last name");
+                        }
+                        else if(Locale.getDefault().getLanguage().equals("es")){
+                            etApellido1.setError("Debes ingresar el apellido");
+                        }
                         etApellido1.requestFocus();
                         return;
                     }
                     if (matcherAp.find()==false){
-                        etApellido1.setError("¿Seguro que has introducido el apellido correctamente?");
+                        if(Locale.getDefault().getLanguage().equals("en")){
+                            etApellido1.setError("Are you sure you're writing your last name correctly?");
+                        }
+                        else if(Locale.getDefault().getLanguage().equals("es")){
+                            etApellido1.setError("¿Seguro que has introducido el apellido correctamente?");
+                        }
                         etApellido1.requestFocus();
                         return;
                     }
                     if ("".equals(edad)){
-                        etEdad.setError("debes ingresar la edad");
+                        if(Locale.getDefault().getLanguage().equals("en")){
+                            etEdad.setError("You must enter your age");
+                        }
+                        else if(Locale.getDefault().getLanguage().equals("es")){
+                            etEdad.setError("Debes ingresar la edad");
+                        }
                         etEdad.requestFocus();
                         return;
                     }
                     if ("".equals(correo)){
-                        etCorreo.setError("debes ingresar el correo");
+                        if(Locale.getDefault().getLanguage().equals("en")){
+                            etCorreo.setError("You need to enter you email");
+                        }
+                        else if(Locale.getDefault().getLanguage().equals("es")){
+                            etCorreo.setError("Debes ingresar el correo");
+                        }
                         etCorreo.requestFocus();
                         return;
                     }
                     if (matcher.find()==false){
-                        etCorreo.setError("El correo ingresado no es válido");
+                        if(Locale.getDefault().getLanguage().equals("en")){
+                            etCorreo.setError("Invalid email");
+                        }
+                        else if(Locale.getDefault().getLanguage().equals("es")){
+                            etCorreo.setError("El correo ingresado no es válido");
+                        }
                         etCorreo.requestFocus();
                         return;
                     }
 
                     if ("".equals(usuario)){
-                        etUsuario.setError("debes ingresar el usuario");
+                        if(Locale.getDefault().getLanguage().equals("en")){
+                            etUsuario.setError("You need to a enter a username");
+                        }
+                        else if(Locale.getDefault().getLanguage().equals("es")){
+                            etUsuario.setError("Debes ingresar el usuario");
+                        }
                         etUsuario.requestFocus();
                         return;
                     }
                     if ("".equals(password1)){
-                        etPassword1.setError("debes ingresar la contraseña");
+                        if(Locale.getDefault().getLanguage().equals("en")){
+                            etPassword1.setError("You need to a enter a password");
+                        }
+                        else if(Locale.getDefault().getLanguage().equals("es")){
+                            etPassword1.setError("Debes ingresar la contraseña");
+                        }
                         etPassword1.requestFocus();
                         return;
                     }
                     if ("".equals(password2)){
-                        etPassword2.setError("debes verificar la contraseña");
+                        if(Locale.getDefault().getLanguage().equals("en")){
+                            etPassword2.setError("You must verify your password");
+                        }
+                        else if(Locale.getDefault().getLanguage().equals("es")){
+                            etPassword2.setError("debes verificar la contraseña");
+                        }
                         etPassword2.requestFocus();
                         return;
                     }
                     if(password1.compareTo(password2) == 0)
                     {
                         int edadF = Integer.parseInt(edad);
-if(validarCopia())
-{
-    user = new Usuario(correo,nombre,apellido1,apellido2,usuario,password1,edadF);
-    long creado = usuarioController.nuevoUsuario(user);
-    if (creado==-1){
-        Toast.makeText(RegisterUserActivity.this, "Error al insertar el usuario",Toast.LENGTH_LONG).show();
-
-    }else{
-        Toast.makeText(RegisterUserActivity.this,"Se insertó correctamente",Toast.LENGTH_LONG).show();
-        //Intent intent = new Intent(RegisterActivity.this,InicioActividad.class);
-        //startActivity(intent);
-        finish();
-    }
-}
+                        if(validarCopia())
+                        {
+                            user = new Usuario(correo,nombre,apellido1,apellido2,usuario,password1,edadF);
+                            long creado = usuarioController.nuevoUsuario(user);
+                            if (creado==-1){
+                                if(Locale.getDefault().getLanguage().equals("en")){
+                                    Toast.makeText(RegisterUserActivity.this, "Error while inserting this user",Toast.LENGTH_LONG).show();
+                                }
+                                else if(Locale.getDefault().getLanguage().equals("es")){
+                                    Toast.makeText(RegisterUserActivity.this, "Error al insertar el usuario",Toast.LENGTH_LONG).show();
+                                }
+                            }else{
+                                if(Locale.getDefault().getLanguage().equals("en")){
+                                    Toast.makeText(RegisterUserActivity.this,"User inserted successfully",Toast.LENGTH_LONG).show();
+                                }
+                                else if(Locale.getDefault().getLanguage().equals("es")){
+                                    Toast.makeText(RegisterUserActivity.this,"Se insertó correctamente",Toast.LENGTH_LONG).show();
+                                }
+                                //Intent intent = new Intent(RegisterActivity.this,InicioActividad.class);
+                                //startActivity(intent);
+                                finish();
+                            }
+                        }
 
 
                     }
                     else
                     {
-                        etPassword2.setError("Las contraseñas no coinciden, vuelva a intentarlo");
+                        if(Locale.getDefault().getLanguage().equals("en")){
+                            etPassword2.setError("These passwords don't match, try again");
+                        }
+                        else if(Locale.getDefault().getLanguage().equals("es")){
+                            etPassword2.setError("Las contraseñas no coinciden, vuelva a intentarlo");
+                        }
                         etPassword2.requestFocus();
                         return;
                     }
@@ -179,12 +245,17 @@ if(validarCopia())
             AyudanteBaseDeDatos ayudanteBaseDeDatos = new AyudanteBaseDeDatos(RegisterUserActivity.this);
             SQLiteDatabase bd = ayudanteBaseDeDatos.getReadableDatabase();
             Cursor c = bd.rawQuery("SELECT usuario, password FROM usuarios", null);
-            if(c.getCount() == 0) Toast.makeText(RegisterUserActivity.this, "Error !",Toast.LENGTH_LONG).show();
+            if(c.getCount() == 0) Toast.makeText(RegisterUserActivity.this, "Error!",Toast.LENGTH_LONG).show();
             if(c.moveToFirst()){
                 do{
                     String usuarioEncontrado = c.getString(0);
                     if(usuarioString.equals(usuarioEncontrado)) {
-                        Toast.makeText(RegisterUserActivity.this, "Error, El Usuario ya existe.",Toast.LENGTH_LONG).show();
+                        if(Locale.getDefault().getLanguage().equals("en")){
+                            Toast.makeText(RegisterUserActivity.this, "Error, this user already exists.",Toast.LENGTH_LONG).show();
+                        }
+                        else if(Locale.getDefault().getLanguage().equals("es")){
+                            Toast.makeText(RegisterUserActivity.this, "Error, el Usuario ya existe.",Toast.LENGTH_LONG).show();
+                        }
                         noExiste = false;
                         break;
                     }

@@ -97,6 +97,8 @@
                 android:layout_weight="1"
                 android:background="#B11623"
                 android:fontFamily="@font/comfortaa_light"
+                android:textSize="24sp"
+                android:textStyle="bold"
                 android:text="@string/btnActualizarFoto"
                 android:textColor="#CCCCCC" />
 
