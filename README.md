@@ -2,6 +2,8 @@
 
 Esta es una aplicación que te da la posibilidad de registrar y visualizar peliculas de todo tipo, todo esto con acceso desde sus cuentas. La aplicacion te permite registrarte y poder cambiar el idioma (español, ingles, quechua). Tambien tenemos un breve vistazo de quienes somos.  
 
+### No creo que lean esto, pero extraño el viejo team :"(
+
 ### Integrantes:
 
 * Sergio Rodrigo Iriarte Zamorano
